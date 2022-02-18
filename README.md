@@ -1,5 +1,10 @@
 # SZTE-adatb-alapu-rendszerek
 
+## Dokumentáció
+
+[Követelmények](./docs/kovetelmenyek.md)
+
+## Jegyzetek a fejlesztéshez
 Legyen külön jogosultságok oktató, hallgató, admin.
 Minden angol. Csak a weboldal tartalma nem.
 
