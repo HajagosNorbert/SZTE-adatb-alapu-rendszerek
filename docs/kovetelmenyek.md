@@ -16,14 +16,15 @@ Egy felhasználó lehet:
 
 ### Oktatók
 Oktatók létre tudnak hozni kurzusokat. Mellékelni tudnak hozzájuk tananyagot fájlként, hirdetményeket tudnak publikálni és írhatnak a kurzusfórumba bejegyzéseket. Ezen elemeknek megváltoztathatják a tulajdonságait, amennyiben ők a tulajdonosai vagy törölhetik azokat.
+Létrehozhatnak vizsgaidőpontokat amik a kurzushoz tartoznak.
 Oktató nélküli kurzusokra is jelentkezhetnek. Lemondhatják a saját kurzusaikat, így oktató nélküli kurzus lesz belőlük.
 Megtekinthetik kik iratkoztak fel a kurzusaikra.
 
 ### Hallgatók
-Megtekinthetnek, valamint fel és le jelentkezhetnek kurzusokra. Felíratkozott kurzusoknak írhatnak bejegyzéseket a kurzusfórumra, sajátjukat megváltoztathatják és törölhetik, vaamint letölthetik a mellékelt tananyagokat.
+Megtekinthetnek, valamint fel és le jelentkezhetnek kurzusokra. Felíratkozott kurzusoknak írhatnak bejegyzéseket a kurzusfórumra, sajátjukat megváltoztathatják és törölhetik, letölthetik a mellékelt tananyagokat, valamint láthatják a kihírdetett vizsgákat, amikre nem kell előre jelentkezni, csak elmennek rájuk.
 
 ### Admin
-Felhasználókat, kurzusokat, tananyagot, bejegyzéseket, hirdetményeket, termeket és a hozzájuk tartozó épületeket vehet fel, módosíthat vagy törölhet ki. Akár a felhasználók típusát is megváltoztathatja. Új szemesztert deklarálhat.
+Felhasználókat, kurzusokat, tananyagot, bejegyzéseket, hirdetményeket, vizsgaidőpontokat, termeket és a hozzájuk tartozó épületeket vehet fel, módosíthat vagy törölhet ki. Akár a felhasználók típusát is megváltoztathatja. Új szemesztert deklarálhat.
 Megtekintheti a logokat arról, hogy ki-mikor lépet be a rendszerbe, illetve mikor volt az utolsó bejelentkezés arra az esetre, ha ki szeretné törölni a régi felhasználókat. Tudja törölni az összes logbejegyzést egy mozdulattal.
 
 A legrégebb óta az egyetemnél tanító oktató évente kap köszönetnyilvánítást. Az admin tudja könnyen, hogy ki ez a oktató.
@@ -40,15 +41,13 @@ A legrégebb óta az egyetemnél tanító oktató évente kap köszönetnyilván
 - oktató jog megvonásánál és oktató felhasználó kitörlésénél a következő jogosultságok lépnek életbe:
   - Hirdetmények és bejegyzések nem törölhetők / módosíthatók más által, még új oktató esetén sem. Azok a kurzus törléséig ott lesznek. (vagy amíg az admin el nem távolítja őket)
   - A tananyagok a kurzushoz tartoznak. Bárki is az oktatója, teljes jogot kap felettük.
-
 - Oktatói jog megvonásánál és oktató felhasználó kitörlésénél a következő történik:
   - A kurzus, amiket tanítottak oktató nélkül maradnak
-
 - Hallgatói jog megvonásánál és hallgató felhasználó kitörlésénél a következő történik:
   - Automatikusan leíratkozik a kurzusokról
   - A kurzusfórumi bejegyzések ott maradnak, amíg a kurzus ki nem törlődik (vagy az admin el nem távolítja őket)
-
 - Egy Épület kitörlése maga után vonja a tantermek kitörlését, viszont a tantermek kitörlése üres értékre állítja a kurzusok `helyszín`e tulajdonságát, amennyiben ott lett volna megtartva az.
 - Terem vagy épület kódjának megváltoztatásánál (PL: TIK-A001 átírásra kerül IR-225 -ra) szintén üres értéket vesz fel a kurzusok `helyszín` tulajdonsága, amennyiben ott lett volna megtartva az.
-- Egy kurzus csak megerősítést követően törölhető, ami után törlődik minden felíratkozás, oktatói tananyag, hírdetmény, bejegyzés.
+- Egy kurzus csak megerősítést követően törölhető, ami után törlődik minden felíratkozás, oktatói tananyag, hírdetmény, bejegyzés, vizsgaidőpont.
 - Mindig legyen legalább egy admin felhasználó. Ha az utolsó admin felhasználó törlődne ki, azt akadályozza meg a rendszer.
+- A vizsgaidőpontok legyenek a jövőre szólóak és legalább 1 nappal előbb ki kell őket hirdetni, mint ami az időpontjuk lenne.
