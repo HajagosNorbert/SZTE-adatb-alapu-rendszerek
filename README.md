@@ -5,6 +5,9 @@
 [Követelmények](./docs/kovetelmenyek.md)
 
 ## Jegyzetek a fejlesztéshez
+
+Draw.io-hoz van template a gyakorlat színterében
+
 Legyen külön jogosultságok oktató, hallgató, admin.
 Minden angol. Csak a weboldal tartalma nem.
 
