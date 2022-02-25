@@ -3,28 +3,25 @@
 ## Dokumentáció
 
 [Követelmények](./docs/kovetelmenyek.md)
+[Funkciók](./docs/funkciok.md)
 
 ## Jegyzetek a fejlesztéshez
 
-Draw.io-hoz van template a gyakorlat színterében
+ClickCharts-ot használunk a diagrammokhoz (legalábbis az DFD-hez)
 
-Legyen külön jogosultságok oktató, hallgató, admin.
 Minden angol. Csak a weboldal tartalma nem.
 
-### Plusz táblák (5):
- - Logolás arról, hogy ki mikor jelentkezett be, látja csak az admin
- - kurzushoz tartozó Tananyag, nev, feltöltve...
- - 1 kurzushoz több Hirdetmény
- - 1 kurzushoz kurzusfórum -> bejegyzés
+Adatvalidáláshoz php libraryt használni.
 
- ## PHP
- Adatvalidáláshoz php libraryt használni
-
+## Kérdések az oktatóhoz
+### DFD
+- A egy folyamat és adattár fölé oda kell írni, hogy "törlés" (vagy valami hasonlót), ha akarjuk jelezni, hogy törölni tud az adott tárból, vagy csak legyen a folyamathoz írva?
+- Clickchartsban karaktereket használunk az adattár duplikálásának jelzésére ( a **|** [pipe] karaktert), illetve * -ot a végső szint jelzéséhez. Ez elfogadható?
 
 ## Feladat felosztás
 Általános követelmény - Norbi
 ### DFD
-- elkezdi - Norbi, valamivel (lucid charts?)
+- Első szintű fizikai DFD: Norbi
 ### EK
 - Laci
 ### ETK

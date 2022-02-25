@@ -35,7 +35,7 @@ A legrégebb óta az egyetemnél tanító oktató évente kap köszönetnyilván
 - A kezdőoldal a bejelentkezési felület, vagy ha bejelentkezett felhasználóról van szó, akkor a kurzusok nézet.
 - Ha nem bejelentkezett, vagy jogtalan felhasználó tekintene meg egy oldalt, legyen visszairányítva a kezdőoldalra.
 - A felhasználói jelszavak biztonságos módon legyenek eltárolva.
-- Az adatok módosítása legyen kényelmes, egy űrlap kitöltése ne igényeljen olyan adatok begépelését, amit nem szándékozunk megváltoztatni. 
+- Az adatok módosítása legyen kényelmes, egy űrlap kitöltése ne igényeljen olyan adatok begépelését, amit nem szándékozunk megváltoztatni. Legyenek előre populálva a megfelelő adatokkal
 - PHD felhasználók ne jelentkezhessenek olyan kurzusra, amit ők tartanak és törlődjenek a hallgatólistáról, amennyibe vállalnak egy kurzust, amire már felvoltak jelentkezve.
 - Admin által létrehozott kurzusok oktató nélküli kurzusok lesznek
 - oktató jog megvonásánál és oktató felhasználó kitörlésénél a következő jogosultságok lépnek életbe:
