@@ -1,25 +1,69 @@
-KURZUS(**kod**, nev, max_letszam, _OKTATO.kod, TEREM.kod, EPULET.kod_)
+3NF
 
-FELIRATKOZAS(**feliratkozas_id**, _KURZUS.kod, HALLGATO.kod_)
+KURZUS
+**kod**
+nev
+max*letszam
+\_OKTATO.kod
+TEREM.kod
+EPULET.kod*
 
-HALLGATO(_**FELHASZNALO.kod**,_ szemeszterek)
+FELIRATKOZAS
+**feliratkozas_id**
+_KURZUS.kod
+HALLGATO.kod_
 
-OKTATO(_**FELHASZNALO.kod**,_ tanitast_kezdte)
+HALLGATO
+_**FELHASZNALO.kod**
+_ szemeszterek
 
-FELHASZNALO(**kod**, vezeteknev, keresztnev, admin, jelszo)
+OKTATO
+_**FELHASZNALO.kod**
+_ tanitast_kezdte
 
-TEREM(**kod** (gyenge), _EPULET.kod_, nev)
+FELHASZNALO
+**kod**
+vezeteknev
+keresztnev
+admin
+jelszo
 
-EPULET(**kod**, nev)
+TEREM
+**kod**
+gyenge _EPULET.kod_ nev
 
-LOG(**kod**, _FELHASZNALO.kod_ ,bejelentkezesi_ido)
+EPULET
+**kod** nev
 
-BEJEGYZÉS(**kod**, tartalom, megiras*ideje, _FELHASZNALO.kod*, _KURZUS.kod_ )
+LOG
+**kod**
+_FELHASZNALO.kod_
+bejelentkezesi_ido
 
-HIRDETMÉNY(**kod**, tartalom, megiras_ideje, _FELHASZNALO.kod_, _KURZUS.kod_)
+BEJEGYZÉS
+**kod**
+tartalom
+megiras*ideje
+\_FELHASZNALO.kod*
+_KURZUS.kod_
 
-TANANYAG(**kod**, nev, feltöltés_datum, tananyag, _KURZUS.kod_)
+HIRDETMÉNY
+**kod**
+tartalom
+megiras*ideje
+\_FELHASZNALO.kod*
+_KURZUS.kod_
 
-VIZSGA(**kod**, időpont, _TEREM.kod, EPULET.kod_, _KURZUS.kod_)
+TANANYAG
+**kod**
+nev
+feltöltés*datum
+tananyag
+\_KURZUS.kod*
 
-
+VIZSGA
+**kod**
+időpont
+_TEREM.kod
+EPULET.kod_
+_KURZUS.kod_)
