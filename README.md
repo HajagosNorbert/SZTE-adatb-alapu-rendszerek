@@ -1,13 +1,9 @@
 # SZTE-adatb-alapu-rendszerek
 
 ## Dokumentáció
-
-[Követelmények](./docs/kovetelmenyek.md)
-[Funkciók](./docs/funkciok.md)
+**Relációs adatelemzést** megcsinálni lentről felfelé, amikor az összes adatot bedobjuk egy táblába, meghatározzuk a függőségeket és az alapján normalizálunk. Ugyan annak kell kijönniel, mint a jelenlegi relációs adatelemzésnek
 
 ## Jegyzetek a fejlesztéshez
-
-ClickCharts-ot használunk a diagrammokhoz (legalábbis az DFD-hez)
 
 Minden angol. Csak a weboldal tartalma nem.
 
