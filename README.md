@@ -2,8 +2,7 @@
 
 ## Dokumentáció
 
-[Követelmények](./docs/kovetelmenyek.md)
-[Funkciók](./docs/funkciok.md)
+**Relációs adatelemzést** megcsinálni lentről felfelé, amikor az összes adatot bedobjuk egy táblába, meghatározzuk a függőségeket és az alapján normalizálunk. Ugyan annak kell kijönniel, mint a jelenlegi relációs adatelemzésnek
 
 ## Jegyzetek
 
