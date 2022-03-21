@@ -5,28 +5,14 @@
 [Követelmények](./docs/kovetelmenyek.md)
 [Funkciók](./docs/funkciok.md)
 
-## Jegyzetek a fejlesztéshez
+## Jegyzetek
 
-ClickCharts-ot használunk a diagrammokhoz (legalábbis az DFD-hez)
-
-Minden angol. Csak a weboldal tartalma nem.
+Csak a weboldal tartalma és az adatbázis nem angol.
 
 Adatvalidáláshoz php libraryt használni.
 
-## Feladat felosztás
+## Teendők
 
-Általános követelmény - Norbi
-
-### DFD
-
-- Első szintű fizikai DFD: Norbi
-
-### EK
-
-- Laci
-
-### ETK
-
-- Laci
+EK diagramban nem köteles részt vennie az oktató - kurzus kapcsolatban egyik félnek sem, de jelenleg úgy van írva, hogy a kurzusnak mindig van oktatója
 
 [Előző dokumentáció](https://www.notion.so/norberthajagos/Dokument-ci-e91623ccb534439dba569725b3399c14)
