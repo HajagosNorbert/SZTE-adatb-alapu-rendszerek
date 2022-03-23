@@ -134,3 +134,17 @@ insert into epulet values ( DEFAULT,'BÉKE ÉP.');
 insert into epulet values ( DEFAULT,'FELASZABADULÁS ÉP.');
 insert into epulet values ( DEFAULT,'PRIDE ÉP.');
 insert into epulet values ( DEFAULT,'REKTORI ÉP.');
+
+grant select, insert, DELETE on BEJEGYZES to C##GK10ZO;
+grant select, insert, DELETE on EPULET to C##GK10ZO;
+grant select, insert, DELETE on felhasznalo to C##GK10ZO;
+grant select, insert, DELETE on feliratkozas to C##GK10ZO;
+grant select, insert, DELETE on hallgato to C##GK10ZO;
+grant select, insert, DELETE on hirdetmeny to C##GK10ZO;
+grant select, insert, DELETE on hirdetmeny to C##GK10ZO;
+grant select, insert, DELETE on log to C##GK10ZO;
+grant select, insert, DELETE on oktato to C##GK10ZO;
+grant select, insert, DELETE on tananyag to C##GK10ZO;
+grant select, insert, DELETE on terem to C##GK10ZO;
+grant select, insert, DELETE on vizsga to C##GK10ZO;
+
