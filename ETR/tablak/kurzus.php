@@ -3,7 +3,7 @@
 $tns = "
 (DESCRIPTION =
     (ADDRESS_LIST =
-      (ADDRESS = (PROTOCOL = TCP)(HOST = orania2.inf.u-szeged.hu)(PORT = 1521))
+      (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))
     )
     (CONNECT_DATA =
       (SID = orania2)
@@ -16,7 +16,7 @@ if (!$conn) {
     trigger_error(htmlentities($e['Error'], ENT_QUOTES), E_USER_ERROR);
 }
 
-$stid = oci_parse($conn, 'SELECT * FROM Epulet');
+$stid = oci_parse($conn, 'SELECT * FROM kurzus');
 oci_execute($stid);
 
 echo "<table border='1'>\n";
