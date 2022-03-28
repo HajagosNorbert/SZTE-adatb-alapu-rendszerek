@@ -1,7 +1,16 @@
 <?php
 
-// Connects to the XE service (i.e. database) on the "localhost" machine
-$conn = oci_connect("phphol", "welcome", "//localhost/orcl");
+$tns = "
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = orania2.inf.u-szeged.hu)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SID = orania2)
+    )
+  )";
+
+$conn = oci_connect("C##GK10ZO", "kela2000", $tns);
 if (!$conn) {
     $e = oci_error();
     trigger_error(htmlentities($e['Error'], ENT_QUOTES), E_USER_ERROR);
