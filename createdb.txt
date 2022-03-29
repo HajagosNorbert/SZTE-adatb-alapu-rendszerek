@@ -258,6 +258,12 @@ INSERT INTO vizsga (idopont, kurzus_kod, terem_kod, epulet_kod ) VALUES (CURRENT
 INSERT INTO vizsga (idopont, kurzus_kod, terem_kod, epulet_kod ) VALUES (CURRENT_TIMESTAMP, 1, 1 ,4);
 INSERT INTO vizsga (idopont, kurzus_kod, terem_kod, epulet_kod ) VALUES (CURRENT_TIMESTAMP, 1, 214 ,3);
 
+insert into tananyag values (1,'Statisztika előadás jegyzet',1,sysdate,EMPTY_BLOB());
+insert into tananyag values (2,'Kertészet gyakorlati jegyzet',2,sysdate,EMPTY_BLOB());
+insert into tananyag values (3,'MintaZH',3,sysdate,EMPTY_BLOB());
+insert into tananyag values (4,'JS segédlet',4,sysdate,EMPTY_BLOB());
+insert into tananyag values (5,'Megoldások',5,sysdate,EMPTY_BLOB());
+
 
 grant select, insert, DELETE on BEJEGYZES to C##GK10ZO;
 grant select, insert, DELETE on EPULET to C##GK10ZO;
