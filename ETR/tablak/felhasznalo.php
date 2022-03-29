@@ -10,7 +10,10 @@ $tns = "
     )
   )";
 
-$conn = oci_connect("C##GK10ZO", "kela2000", $tns);
+$username = getenv('szte_oracle_username');
+$password = getenv('szte_oracle_password');
+
+$conn = oci_connect("$username", "$password", $tns);
 if (!$conn) {
     $e = oci_error();
     trigger_error(htmlentities($e['Error'], ENT_QUOTES), E_USER_ERROR);

@@ -18,7 +18,7 @@ if (!$conn) {
     trigger_error(htmlentities($e['Error'], ENT_QUOTES), E_USER_ERROR);
 }
 
-$stid = oci_parse($conn, 'SELECT * FROM log');
+$stid = oci_parse($conn, 'SELECT * FROM vizsga');
 oci_execute($stid);
 
 echo "<table border='1'>\n";
