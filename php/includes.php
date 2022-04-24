@@ -1,7 +1,7 @@
 <?php
 
+?>
 
-echo'
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -9,12 +9,13 @@ echo'
     <title>Felvett kurzusok</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body>';
+<body>
 
+<?php
 if(isset($_SESSION["userID"]) || isset($_SESSION["admin"])) {
-    echo '
+?>
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-    <a class="navbar-brand" href="courses.php">Főoldal</a>
+    <a class="navbar-brand" href="./index.php">Főoldal</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,18 +36,21 @@ if(isset($_SESSION["userID"]) || isset($_SESSION["admin"])) {
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
             </li>
-        </ul>';
+        </ul>
 
-    if (isset($_SESSION["admin"]) || isset($_SESSION["userID"])) {
-        echo "<button type='submit' class='btn btn-info'><a href='php/logout.php' style='color: black' class='text-decoration-none'>Kijelentkezés</a></button>";
+    <?php
+        if (isset($_SESSION["admin"]) || isset($_SESSION["userID"])) {
+    ?>
+        <button type='submit' class='btn btn-info'><a href='../php/logout.php' style='color: black' class='text-decoration-none'>Kijelentkezés</a></button>
+    <?php
     }
-    echo "
+    ?>
     </div>
 </nav>
-";
 
-    echo "
     
     </body>
-    </html>";
+    </html>
+<?php
 }
+?>

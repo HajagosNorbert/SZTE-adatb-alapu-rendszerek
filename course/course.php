@@ -1,8 +1,8 @@
 <?php
 
-require_once "php/connection.php";
-require_once "php/functions.php";
-include "php/includes.php";
+require_once "../php/connection.php";
+require_once "../php/functions.php";
+include "../php/includes.php";
 
 $db = new Database();
 $func = new functions();
@@ -21,7 +21,7 @@ $counter = 0;
 ?>
 
     <div style="margin-left: 42%;margin-top:10%">
-        <button type="button" class="btn btn-primary"><a href="course/announcments.php" class="text-decoration-none" style="color:white">Hirdetmények</a></button>
+        <button type="button" class="btn btn-primary"><a href="announcments.php" class="text-decoration-none" style="color:white">Hirdetmények</a></button>
         <button type="button" class="btn btn-primary">Kurzusfórum</button>
         <button type="button" class="btn btn-primary">Dokumentumok</button>
     </div>

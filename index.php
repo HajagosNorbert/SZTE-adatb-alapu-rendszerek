@@ -5,7 +5,7 @@ include "php/includes.php";
 
     if(!isset($_SESSION["admin"])){
         if(isset($_SESSION["userID"])){
-            header("location: courses.php");
+            header("location: course/index.php");
         }
     }
 

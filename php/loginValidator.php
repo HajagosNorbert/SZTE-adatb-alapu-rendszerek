@@ -9,7 +9,7 @@ if(!isset($_POST["login"])){
 
 $db = new Database();
 
-$studentID = trim($_POST["studentID"]);
+$studentID = (int)trim($_POST["studentID"]);
 $password = trim($_POST["password"]);
 
 $error = [];
@@ -24,7 +24,7 @@ $conn = $db -> connect();
 
 
 
-$stid = oci_parse($conn, "SELECT * FROM felhasznalo where hallgato_azonosito = '$studentID'");
+$stid = oci_parse($conn, "SELECT * FROM felhasznalo where kod = $studentID");
 oci_execute($stid);
 
 
@@ -40,7 +40,7 @@ $row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS) ;
                 $_SESSION["userID"] = $row["KOD"];
             }
 
-            header("location: ../courses.php");
+            header("location: ../course/index.php");
         }else{
             header("location: ../index.php");
         }
