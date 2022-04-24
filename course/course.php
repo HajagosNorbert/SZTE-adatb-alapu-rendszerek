@@ -1,8 +1,8 @@
 <?php
 
 require_once "../php/connection.php";
-require_once "../php/functions.php";
-include "../php/includes.php";
+require_once "../php/utils.php";
+include "../php/header.php";
 
 $db = new Database();
 $func = new functions();

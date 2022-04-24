@@ -2,7 +2,7 @@
 <?php
 session_start();
 
-include "php/includes.php";
+include "php/header.php";
 
 
 if(!isset($_SESSION["admin"])){
@@ -17,13 +17,12 @@ if(isset($_SESSION["admin"])){
     echo "<button type='button'><a href='studentManagment.php'></a>Új hallgató felvitele</button>";
 }
 
-
 ?>
 
 <form action="./php/loginValidator.php" method="post">
     <div class="form-group" style="width: 20%;margin-left: 37%">
-        <label for="studentID">Azonosító:</label>
-        <input type="text" name="studentID" id="studentID" class="form-control" placeholder="Azonosító">
+        <label for="userId">Azonosító:</label>
+        <input type="text" name="userId" id="userId" class="form-control" placeholder="Azonosító">
 
         <br>
 
