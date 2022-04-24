@@ -1,7 +1,7 @@
-<?php
+<?php 
 session_start();
 require_once("../php/connection.php");
-include("../php/header.php");
+include_once("../php/header.php");
 
 
 $db = new Database();

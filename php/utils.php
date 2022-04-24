@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once "connection.php";
 
 class Utils{
@@ -37,6 +36,30 @@ class Utils{
 
         $stid = oci_parse($this->conn, $sql);
         oci_bind_by_name($stid, ":userId", $userId);
+        oci_execute($stid);
+        return $stid;
+    }
+
+    public function getUsers()
+    {
+        $sql = "SELECT kod, jelszo, keresztnev, vezeteknev, admin, szemeszter, hallgato.felhasznalo_kod as hallgato_kod, tanitas_kezdete, oktato.felhasznalo_kod as oktato_kod
+        FROM felhasznalo
+        left join hallgato on  hallgato.felhasznalo_kod = felhasznalo.kod
+        left join oktato on oktato.felhasznalo_kod = felhasznalo.kod";
+
+        $stid = oci_parse($this->conn, $sql);
+        oci_execute($stid);
+        return $stid;
+    }
+
+    public function deleteUser($id)
+    {
+        $sql = "SELECT kod, jelszo, keresztnev, vezeteknev, admin, szemeszter, hallgato.felhasznalo_kod as hallgato_kod, tanitas_kezdete, oktato.felhasznalo_kod as oktato_kod
+        FROM felhasznalo
+        left join hallgato on  hallgato.felhasznalo_kod = felhasznalo.kod
+        left join oktato on oktato.felhasznalo_kod = felhasznalo.kod";
+
+        $stid = oci_parse($this->conn, $sql);
         oci_execute($stid);
         return $stid;
     }

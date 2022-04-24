@@ -2,19 +2,10 @@
 <?php
 session_start();
 
-include_once "php/header.php";
+include_once "./php/header.php";
 
-
-if(!isset($_SESSION["admin"])){
-    if(isset($_SESSION["userId"])){
-        header("location: course/index.php");
-    }
-}
-
-
-
-if(isset($_SESSION["admin"])){
-    echo "<button type='button'><a href='studentManagment.php'></a>Új hallgató felvitele</button>";
+if(isset($_SESSION["userId"])){
+    header("location: course/");
 }
 
 ?>

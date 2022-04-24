@@ -7,11 +7,11 @@
 </head>
 <body>
 
-<?php
+<?php 
 if(isset($_SESSION["userId"]) || isset($_SESSION["admin"])):
 ?>
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-    <a class="navbar-brand" href="./index.php">Főoldal</a>
+    <a class="navbar-brand" href="/">Főoldal</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -19,11 +19,13 @@ if(isset($_SESSION["userId"]) || isset($_SESSION["admin"])):
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="../course/">Kurzusok</a>
+                <a class="nav-link" href="/course/">Kurzusok</a>
             </li>
-            
-            
-            
+            <?php if (isset($_SESSION["admin"])): ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/">Felhasználók</a>
+                </li>
+            <?php endif ?>
             
             <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -38,11 +40,11 @@ if(isset($_SESSION["userId"]) || isset($_SESSION["admin"])):
             </li> -->
         </ul>
 
-    <?php
+    <?php 
         if (isset($_SESSION["admin"]) || isset($_SESSION["userId"])):
     ?>
-        <a href='../php/logout.php' style='color: black' class='text-decoration-none'><button type='submit' class='btn btn-info'>Kijelentkezés</button></a>
-    <?php
+        <a href='/php/logout.php' style='color: black' class='text-decoration-none'><button type='submit' class='btn btn-info'>Kijelentkezés</button></a>
+    <?php 
     endif;
     ?>
     </div>
@@ -51,6 +53,6 @@ if(isset($_SESSION["userId"]) || isset($_SESSION["admin"])):
     
     </body>
     </html>
-<?php
+<?php 
 endif;
 ?>

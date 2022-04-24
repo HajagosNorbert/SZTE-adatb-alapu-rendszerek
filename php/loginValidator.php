@@ -1,4 +1,5 @@
-<?php
+<?php 
+session_start();
 require_once("utils.php");
 
 if(!isset($_POST["login"])){
@@ -37,7 +38,7 @@ if(count($error) == 0){
         $_SESSION["oktato"] = 1;
     }
 
-    header("location: ../course/index.php");
+    header("location: /course/");
   
 }
 

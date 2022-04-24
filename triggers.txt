@@ -1,0 +1,8 @@
+create or replace trigger felhasznalo_torles
+before delete on felhasznalo
+for each row 
+begin
+    delete from hallgato where FELHASZNALO_KOD = :old.kod;
+    delete from oktato where FELHASZNALO_KOD = :old.kod;
+end;
+/
