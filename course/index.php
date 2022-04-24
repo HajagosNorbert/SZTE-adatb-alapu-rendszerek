@@ -10,7 +10,7 @@ $conn = $db ->connect();
 $counter = 0;
 
 
-$kod = $_SESSION["userID"];
+$kod = $_SESSION["userId"];
 
 $sql = "SELECT kurzus.nev FROM kurzus INNER JOIN feliratkozas ON kurzus.kod = feliratkozas.kurzus_kod 
                                                                INNER JOIN hallgato on feliratkozas.hallgato_kod = hallgato.felhasznalo_kod

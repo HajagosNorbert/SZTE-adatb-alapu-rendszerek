@@ -2,11 +2,11 @@
 <?php
 session_start();
 
-include "php/header.php";
+include_once "php/header.php";
 
 
 if(!isset($_SESSION["admin"])){
-    if(isset($_SESSION["userID"])){
+    if(isset($_SESSION["userId"])){
         header("location: course/index.php");
     }
 }
@@ -34,5 +34,5 @@ if(isset($_SESSION["admin"])){
     </div>
 </form>
 <?php
-include "php/footer.php";
+include_once "php/footer.php";
 ?>

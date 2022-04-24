@@ -5,8 +5,6 @@ if(!isset($_POST["login"])){
     header("location: index.php");
 }
 
-$db = new Database();
-
 $userId = (int)trim($_POST["userId"]);
 $password = trim($_POST["password"]);
 
@@ -18,24 +16,29 @@ if(empty($userId) || empty($password)){
 }
 
 
-$util = new functions();
+$util = new Utils();
 $stid = $util->getUserById($userId);
 
 $row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS);
-print_r($row);
 
 if(count($error) == 0){
-    if($password == $row["JELSZO"]){
-
-        $_SESSION["userID"] = $row["KOD"];
-        if($row["ADMIN"] == 1 ){
-            $_SESSION["admin"] = 1;
-        }
-
-        header("location: ../course/index.php");
-    }else{
+    if($password !== $row["JELSZO"]){
         header("location: ../index.php");
     }
+
+    $_SESSION["userId"] = $row["KOD"];
+    if($row["ADMIN"] == 1 ){
+        $_SESSION["admin"] = 1;
+    }
+    if(!is_null($row["HALLGATO_KOD"])){
+        $_SESSION["student"] = 1;
+    }
+    if(!is_null($row["OKTATO_KOD"])){
+        $_SESSION["oktato"] = 1;
+    }
+
+    header("location: ../course/index.php");
+  
 }
 
 

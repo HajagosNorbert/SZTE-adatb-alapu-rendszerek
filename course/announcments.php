@@ -5,7 +5,7 @@ require_once "../php/utils.php";
 include "../php/header.php";
 
 $db = new Database();
-$func = new functions();
+$func = new Utils();
 
 $conn = $db ->connect();
 

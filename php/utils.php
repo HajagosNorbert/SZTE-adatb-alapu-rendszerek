@@ -2,7 +2,7 @@
 session_start();
 require_once "connection.php";
 
-class functions{
+class Utils{
     private $conn;
 
 
