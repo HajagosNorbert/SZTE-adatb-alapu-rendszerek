@@ -6,3 +6,8 @@
 - 3 tárolt függvény az adatbázisban
 - a grafika, amik a követelményekhez kellenek
 - a grafika, amelyek leírtunk a dokumentációba (don't go too crazy with it).
+
+## Laci
+
+Bejelentkezés
+hallgató általi kurzuslistázás (főképp lekérdezések)

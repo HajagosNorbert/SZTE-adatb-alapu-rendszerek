@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -12,7 +8,7 @@
 <body>
 
 <?php
-if(isset($_SESSION["userID"]) || isset($_SESSION["admin"])) {
+if(isset($_SESSION["userID"]) || isset($_SESSION["admin"])):
 ?>
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
     <a class="navbar-brand" href="./index.php">Főoldal</a>
@@ -39,11 +35,11 @@ if(isset($_SESSION["userID"]) || isset($_SESSION["admin"])) {
         </ul>
 
     <?php
-        if (isset($_SESSION["admin"]) || isset($_SESSION["userID"])) {
+        if (isset($_SESSION["admin"]) || isset($_SESSION["userID"])):
     ?>
         <button type='submit' class='btn btn-info'><a href='../php/logout.php' style='color: black' class='text-decoration-none'>Kijelentkezés</a></button>
     <?php
-    }
+    endif;
     ?>
     </div>
 </nav>
@@ -52,5 +48,5 @@ if(isset($_SESSION["userID"]) || isset($_SESSION["admin"])) {
     </body>
     </html>
 <?php
-}
+endif;
 ?>

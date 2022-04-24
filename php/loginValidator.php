@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 require_once("connection.php");
 
@@ -23,28 +22,27 @@ if(empty($studentID) || empty($password)){
 $conn = $db -> connect();
 
 
-
 $stid = oci_parse($conn, "SELECT * FROM felhasznalo where kod = $studentID");
 oci_execute($stid);
 
 
 
-$row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS) ;
+$row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS);
+print_r($row);
+if(count($error) == 0){
+    if($password == $row["JELSZO"]){
 
-    if(count($error) == 0){
-        if($password == $row["JELSZO"]){
-
-            if($row["ADMIN"] == 1 ){
-                $_SESSION["admin"] = $row["KOD"];
-            }else{
-                $_SESSION["userID"] = $row["KOD"];
-            }
-
-            header("location: ../course/index.php");
+        if($row["ADMIN"] == 1 ){
+            $_SESSION["admin"] = $row["KOD"];
         }else{
-            header("location: ../index.php");
+            $_SESSION["userID"] = $row["KOD"];
         }
+
+        header("location: ../course/index.php");
+    }else{
+        header("location: ../index.php");
     }
+}
 
 
 
