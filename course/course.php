@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require_once "../php/connection.php";
 require_once "../php/utils.php";
 include "../php/header.php";
@@ -14,6 +14,7 @@ $course = $_GET["name"];
 $course_ID = $func ->getCourseID($course);
 
 $_SESSION["course_ID"] = $course_ID;
+
 
 $counter = 0;
 

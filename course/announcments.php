@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require_once "../php/connection.php";
 require_once "../php/utils.php";
 include "../php/header.php";
