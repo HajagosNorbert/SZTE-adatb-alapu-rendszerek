@@ -10,6 +10,7 @@ if(isset($_SESSION["userId"])){
 
 ?>
 
+
 <form action="./php/loginValidator.php" method="post">
     <div class="form-group" style="width: 20%;margin-left: 37%">
         <label for="userId">Azonosító:</label>
