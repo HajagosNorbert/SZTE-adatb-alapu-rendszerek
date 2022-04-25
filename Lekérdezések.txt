@@ -1,0 +1,42 @@
+1. Listázza, hogy melyik kurzust, hányan vették fel, illetve hogy mennyi a max létszám
+
+
+select kurzus.nev, count(kurzus.nev) AS "Felvette", kurzus.max_letszam
+from kurzus inner join feliratkozas on kurzus.kod = feliratkozas.kurzus_kod inner join felhasznalo on feliratkozas.hallgato_kod = felhasznalo.kod
+group by kurzus.nev,kurzus.max_letszam
+
+
+2. Legújabb hirdetmény
+
+select tartalom from hirdetmeny where megiras_ideje in (select MAX(megiras_ideje) from hirdetmeny)
+
+
+3. Legújabb fórum bejegyzés
+
+select tartalom from bejegyzes where megiras_ideje in (select MAX(megiras_ideje) from bejegyzes)
+
+
+4. Legújabb dokumentum
+
+select nev from tananyag where feltoltes_datum in (select MAX(feltoltes_datum) from tananyag)
+
+5. Legfrissebb bejelentkezés
+
+select felhasznalo_kod from log where bejelentkezesi_ido in (select MAX(bejelentkezesi_ido) from log)
+
+
+6. Melyik vizsga melyik teremben lesz, illetve abban a teremben az adott kurzusból hány vizsga lesz
+
+select kurzus.nev, terem.nev AS "terem", count(terem.nev) AS "Vizsgák száma"
+from terem inner join vizsga on vizsga.terem_kod = terem.kod inner join kurzus on vizsga.kurzus_kod = kurzus.kod
+group by  terem.nev,kurzus.nev
+order by kurzus.nev
+
+
+7. Az egyes kurzusokból, hány vizsgaalkalom van meghirdetve
+
+
+select kurzus.nev, count(kurzus.nev) AS "Darab vizsga"
+from vizsga inner join kurzus on vizsga.kurzus_kod = kurzus.kod
+group by kurzus.nev
+
