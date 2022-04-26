@@ -2,11 +2,12 @@
 require_once("../php/utils.php");
 session_start();
 
-if(!isset($_GET["id"]) || !is_numeric($_GET["id"]) || !isset($_SESSION["admin"])){
+if(!isset($_GET["id"]) || !is_numeric($_GET["id"]) ){
   header("location: /");
 }
 
 $utils = new Utils();
-$stid = $utils->deleteUser($_GET["userId"]);
-header("location: /user/");
+$utils -> deleteAnnouncmentById($_GET["id"]);
+
+header("location: /course/announcments.php");
 

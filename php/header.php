@@ -32,6 +32,9 @@ if(isset($_SESSION["userId"]) || isset($_SESSION["admin"])):
                     <a class="nav-link" href="/delete/rooms.php">Termek</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/delete/documents.php">Doksik</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/delete/logs.php">Log</a>
                 </li>
             <?php endif ?>

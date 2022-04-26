@@ -22,7 +22,7 @@ class Utils{
 
     public function getAnnouncmentsByCourseId($courseId)
     {
-        $sql = "SELECT tartalom FROM hirdetmeny WHERE kurzus_kod = :courseId";
+        $sql = "SELECT kod,felhasznalo_kod,tartalom FROM hirdetmeny WHERE kurzus_kod = :courseId";
 
 
         $stid = oci_parse($this->conn,$sql);
@@ -162,6 +162,63 @@ class Utils{
         $stid = oci_parse($this->conn, $sql);
         oci_bind_by_name($stid, ":studentId", $studentId);
         oci_bind_by_name($stid, ":courseId", $courseId);
+        oci_execute($stid);
+        return $stid;
+    }
+
+    public function countBuildingById($buildingId){
+        $sql_count = 'select count(epulet.nev) as "darab"'. "from terem inner join epulet on terem.epulet_kod = epulet.kod where epulet_kod = $buildingId ";
+        $stid = oci_parse($this->conn, $sql_count);
+        oci_execute($stid);
+
+        return $stid;
+    }
+
+    public function deleteBuildingById($buildingId){
+        $sql = "delete from epulet where kod = :buildingId";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":buildingId", $buildingId);
+        oci_execute($stid);
+        return $stid;
+    }
+
+    public function deleteAnnouncmentById($id){
+        $sql = "delete from hirdetmeny where kod = :announcmentId";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":announcmentId", $id);
+        oci_execute($stid);
+        return $stid;
+    }
+
+    public function getBejegyzesekFromId($courseId){
+        $sql = "SELECT kod,felhasznalo_kod,tartalom FROM bejegyzes WHERE kurzus_kod = :courseId";
+
+        $stid = oci_parse($this->conn,$sql);
+        oci_bind_by_name($stid, ":courseId", $courseId);
+        oci_execute($stid);
+        return $stid;
+    }
+
+    public function deleteBejegyzesById($id){
+        $sql = "delete from bejegyzes where kod = :bejegyzesId";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":bejegyzesId", $id);
+        oci_execute($stid);
+        return $stid;
+    }
+
+    public function getDoksik(){
+        $sql = "SELECT kod,nev FROM tananyag";
+
+        $stid = oci_parse($this->conn,$sql);
+        oci_execute($stid);
+        return $stid;
+    }
+
+    public function deleteDoksiById($doksiId){
+        $sql = "delete from tananyag where kod = :doksiId";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":doksiId", $doksiId);
         oci_execute($stid);
         return $stid;
     }
