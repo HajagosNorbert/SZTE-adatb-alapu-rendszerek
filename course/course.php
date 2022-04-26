@@ -4,20 +4,9 @@ require_once "../php/connection.php";
 require_once "../php/utils.php";
 include "../php/header.php";
 
-$db = new Database();
-$func = new Utils();
+$utils = new Utils();
 
-$conn = $db ->connect();
-
-$course = $_GET["name"];
-
-$course_ID = $func ->getCourseID($course);
-
-$_SESSION["course_ID"] = $course_ID;
-
-
-$counter = 0;
-
+$stid = $utils ->getCourseById($_GET["courseId"]);
 
 ?>
 

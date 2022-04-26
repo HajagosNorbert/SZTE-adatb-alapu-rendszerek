@@ -4,37 +4,42 @@ require_once "../php/connection.php";
 require_once "../php/utils.php";
 include "../php/header.php";
 
-$db = new Database();
-$func = new Utils();
-
-$conn = $db ->connect();
-
-
-$course_ID = $_SESSION["course_ID"];
-$counter = 0;
-
-$sql = "SELECT tartalom FROM hirdetmeny WHERE kurzus_kod = $course_ID";
+$rows = [];
+$noAnouncementsFound = false;
+$utils = new Utils();
+if(!isset($_GET["courseId"]) || !is_numeric($_GET["courseId"])){
+    header("location: /course/");
+}
 
 
-$announcements = oci_parse($conn, $sql);
-oci_execute($announcements);
+//get the course by id and redirect if there issn't one
+$courseStid = $utils->getCourseById((int) $_GET["courseId"]);
+if(!oci_fetch_all($courseStid, $courses, 0, -1, OCI_FETCHSTATEMENT_BY_ROW)){
+    header("location: /course/");
+}
+
+$stid = $utils->getAnnouncmentsByCourseId((int) $_GET["courseId"]);
+if(!oci_fetch_all($stid, $rows, 0, -1, OCI_FETCHSTATEMENT_BY_ROW)){
+    $noAnouncementsFound = true;
+    echo"Nincs hírdetmény ehhez az courseId-hoz";
+}
+
 
 echo "<div style='margin-left: 37%'>".
     "<table class='table table-striped table-dark' style='width: 40%;text-align: center'>";
 
 echo "<th>Hirdetmények</th></tr>";
-while ($row = oci_fetch_array($announcements, OCI_ASSOC+OCI_RETURN_NULLS)) {
+foreach ($rows as $row) {
 
 
     echo "<tr>";
     foreach ($row as $item) {
         echo "    <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>";
-        $counter++;
     }
     echo "</tr>";
 
 }
-if($counter == 0){
+if($noAnouncementsFound){
     echo "<td>A hirdetményekhez még nem írtak</td>";
 }
 echo "</table>".

@@ -12,7 +12,7 @@ require_once("../php/utils.php");
 $utils = new Utils();
 if(isset($_GET["userId"]) && is_numeric($_GET["userId"])){
   $stid = $utils->getUserById((int) $_GET["userId"]);
-  if($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)){
+  if($row = oci_fetch_assoc($stid)){
     $user = $row;
   }
 }

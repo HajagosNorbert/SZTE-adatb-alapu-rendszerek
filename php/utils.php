@@ -9,21 +9,43 @@ class Utils{
         $this->conn =  (new Database()) -> connect();
     }
 
+    //felesleges. Ha tudjuk a nevet, akkor már tudnunk kell a kódot is, mert abból eredt a név
+    // public function getCourseID($course): int
+    // {
+    //     $sql = "select kod from kurzus where kod = '$course'";
 
-    public function getCourseID($course): int
+
+    //     $stid = oci_parse($this->conn,$sql);
+    //     oci_execute($stid);
+
+    //     $row = oci_fetch_assoc($stid);
+
+    //     if(!empty($row)){
+    //         return (int)$row["KOD"];
+    //     }
+    //     return 0;
+    // }
+
+    public function getCourseById($courseId)
     {
-        $sql = "select kod from kurzus where nev = '$course'";
+        $sql = "select * from kurzus where kod = :courseId";
 
 
         $stid = oci_parse($this->conn,$sql);
+        oci_bind_by_name($stid, ":courseId", $courseId);
         oci_execute($stid);
+        return $stid;
+    }
 
-        $row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS);
+    public function getAnnouncmentsByCourseId($courseId)
+    {
+        $sql = "SELECT tartalom FROM hirdetmeny WHERE kurzus_kod = :courseId";
 
-        if(!empty($row)){
-            return (int)$row["KOD"];
-        }
-        return 0;
+
+        $stid = oci_parse($this->conn,$sql);
+        oci_bind_by_name($stid, ":courseId", $courseId);
+        oci_execute($stid);
+        return $stid;
     }
 
     public function getUserById($userId)
@@ -34,12 +56,6 @@ class Utils{
         left join hallgato on  hallgato.felhasznalo_kod = felhasznalo.kod
         left join oktato on oktato.felhasznalo_kod = felhasznalo.kod
         where felhasznalo.kod = :userId";
-
-        // $sql = "SELECT kod, jelszo, keresztnev, vezeteknev, admin, szemeszter, hallgato.felhasznalo_kod as hallgato_kod, tanitas_kezdete, oktato.felhasznalo_kod as oktato_kod
-        // FROM felhasznalo
-        // left join hallgato on  hallgato.felhasznalo_kod = felhasznalo.kod
-        // left join oktato on oktato.felhasznalo_kod = felhasznalo.kod
-        // where felhasznalo.kod = :userId";
 
         $stid = oci_parse($this->conn, $sql);
         oci_bind_by_name($stid, ":userId", $userId);
@@ -54,12 +70,7 @@ class Utils{
         FROM felhasznalo        
         left join hallgato on  hallgato.felhasznalo_kod = felhasznalo.kod 
         left join oktato on oktato.felhasznalo_kod = felhasznalo.kod";
-        /*
-        $sql = "SELECT kod, jelszo, keresztnev, vezeteknev, admin, szemeszter, hallgato.felhasznalo_kod as hallgato_kod, tanitas_kezdete, oktato.felhasznalo_kod as oktato_kod
-        FROM felhasznalo
-        left join hallgato on  hallgato.felhasznalo_kod = felhasznalo.kod
-        left join oktato on oktato.felhasznalo_kod = felhasznalo.kod";
-        */
+
         $stid = oci_parse($this->conn, $sql);
         oci_execute($stid);
         return $stid;
@@ -75,6 +86,8 @@ class Utils{
         oci_execute($stid);
         return $stid;
     }
+
+
     
 //========================================================
 //===================== NEM ADATBAZIS ====================

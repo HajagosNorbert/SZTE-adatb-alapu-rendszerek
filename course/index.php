@@ -12,7 +12,7 @@ $counter = 0;
 
 $kod = $_SESSION["userId"];
 
-$sql = "SELECT kurzus.nev FROM kurzus INNER JOIN feliratkozas ON kurzus.kod = feliratkozas.kurzus_kod 
+$sql = "SELECT kurzus.nev, kurzus.kod FROM kurzus INNER JOIN feliratkozas ON kurzus.kod = feliratkozas.kurzus_kod 
                                                                INNER JOIN hallgato on feliratkozas.hallgato_kod = hallgato.felhasznalo_kod
                                                                INNER JOIN felhasznalo on hallgato.felhasznalo_kod = felhasznalo.kod
                                                                WHERE felhasznalo.kod = $kod";
@@ -24,14 +24,13 @@ echo "<div style='margin-left: 37%'>".
      "<table class='table table-striped table-dark' style='width: 40%;text-align: center'>";
 
 echo "<th>Kurzus neve</th></tr>";
-while ($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
-
+while ($row = oci_fetch_assoc($stid)) {
+    $courseName = $row["NEV"] !== null ? htmlentities($row["NEV"], ENT_QUOTES) : "&nbsp;";
+    $courseId = $row["KOD"];
 
     echo "<tr>";
-    foreach ($row as $item) {
-        echo "    <td><a style='color: white' href='course.php?name=$item'>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . ".</a></td>";
+        echo "<td><a style='color: white' href='course.php?courseId=$courseId'>$courseName</a></td>";
         $counter++;
-    }
     echo "</tr>";
 
 }

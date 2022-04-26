@@ -31,7 +31,7 @@ $stid = $utils->getUsers();
             <th>Tanítást kezdte</th>
             <th class="text-center">Akció</th>
             <?php
-            while ($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) :
+            while ($row = oci_fetch_assoc($stid)) :
                 $keresztnev = $row['KERESZTNEV'] !== null ? htmlentities($row['KERESZTNEV'], ENT_QUOTES) : 'ismeretlen';
                 $vezeteknev = $row['VEZETEKNEV'] !== null ? htmlentities($row['VEZETEKNEV'], ENT_QUOTES) : 'ismeretlen';
                 $startedTeaching = $row['TANITAS_KEZDETE'] !== null ? htmlentities($row['TANITAS_KEZDETE'], ENT_QUOTES) : '';

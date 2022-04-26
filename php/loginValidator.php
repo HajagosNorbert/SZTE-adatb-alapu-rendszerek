@@ -20,7 +20,7 @@ if(empty($userId) || empty($password)){
 $util = new Utils();
 $stid = $util->getUserById($userId);
 
-$row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS);
+$row = oci_fetch_assoc($stid);
 
 if(count($error) == 0){
     if($password !== $row["JELSZO"]){

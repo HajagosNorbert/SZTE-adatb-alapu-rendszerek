@@ -7,13 +7,14 @@
 - a grafika, amik a követelményekhez kellenek
 - a grafika, amelyek leírtunk a dokumentációba (don't go too crazy with it).
 
-## Laci todo
-
-Bejelentkezés
-hallgató általi kurzuslistázás (főképp lekérdezések)
-
 ## Norbi todo
 
-Felhasználó törlse (bármilyen típusú, önmagát nem, csak admin)
+kurzus törlése
 
-## Norbi done
+## Pair programming
+
+### announcments
+
+- oci_fetch_all
+- row is an associative array, no need to iterate through the items
+- identify with the id
