@@ -6,11 +6,10 @@ if(!isset($_SESSION["userId"]) || !isset($_SESSION["admin"])){
     header("location: /");
 }
 
-if($_POST["userId"] == $_SESSION["userId"]){
+if($_GET["userId"] == $_SESSION["userId"]){
     header("location: /user/");
 }
-echo $_POST['userId']. "számú felhasználó törlése (majd) ";
 $utils = new Utils();
-$stid = $utils->deleteUser($_POST["userId"]);
+$stid = $utils->deleteUser($_GET["userId"]);
 header("location: /user/");
 
