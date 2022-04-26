@@ -6,3 +6,18 @@ begin
     delete from oktato where FELHASZNALO_KOD = :old.kod;
 end;
 /
+
+//Kurzus törléshez trigger
+
+create or replace trigger delete_courses
+before delete on kurzus
+for each row
+begin
+
+    delete from bejegyzes where kod = :OLD.kod;
+    delete from feliratkozas where kurzus_kod = :OLD.kod;
+    delete from hirdetmeny where kurzus_kod = :OLD.kod;
+    delete from tananyag where kurzus_kod = :OLD.kod;
+    delete from vizsga where kurzus_kod = :OLD.kod;
+
+end;
