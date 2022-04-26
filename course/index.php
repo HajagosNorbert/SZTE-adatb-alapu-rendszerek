@@ -46,13 +46,15 @@ $coursesCount = oci_fetch_all($stid, $courses, 0, -1, OCI_FETCHSTATEMENT_BY_ROW)
                 <td><?="$studentCount / $maxStudentCount"?></td>
                 <td><?=$teacherNameText?></td>
                 <td class="text-center">
-                
-                <?php if(isset($_SESSION["hallgato"]) && $_SESSION["userId"] != $row["OKTATO_KOD"]): ?>
+                    <?php if(isset($_SESSION["hallgato"]) && $_SESSION["userId"] != $row["OKTATO_KOD"]): ?>
+                        // TODO: COURSE LINK
                     <a class="btn btn-danger" href="./unsubscribeFromCourseAsStudent.php?courseId=<?= $row['KOD'] ?> ?>" >Lejelentkezés</a>
                 <?php endif; ?>
                 
                 <?php if(isset($row["OKTATO_KOD"]) && $_SESSION["userId"] == $row["OKTATO_KOD"] && isset($_SESSION["oktato"])): ?>
+
                     <a class="btn btn-danger" href="./unsubscribeFromCourseAsTeacher.php?courseId=<?= $row['KOD'] ?>">Tanítás Leadása</a>
+
                 <?php endif; ?>
             </tr>
             <?php endforeach; ?>
@@ -63,3 +65,4 @@ $coursesCount = oci_fetch_all($stid, $courses, 0, -1, OCI_FETCHSTATEMENT_BY_ROW)
 <?php
 include_once("../php/footer.php");
 ?>
+

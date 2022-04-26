@@ -4,7 +4,6 @@ require_once "../php/connection.php";
 require_once "../php/utils.php";
 include "../php/header.php";
 
-$rows = [];
 $noAnouncementsFound = false;
 $utils = new Utils();
 if(!isset($_GET["courseId"]) || !is_numeric($_GET["courseId"])){

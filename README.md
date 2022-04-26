@@ -7,14 +7,12 @@
 - a grafika, amik a követelményekhez kellenek
 - a grafika, amelyek leírtunk a dokumentációba (don't go too crazy with it).
 
-## Norbi todo
+## tODO DELETION
 
-kurzus törlése
+(ki törölheti? , paramétervalidálás)
 
-## Pair programming
-
-### announcments
-
-- oci_fetch_all
-- row is an associative array, no need to iterate through the items
-- identify with the id, from $\_GET, not $\_SESSION
+- epulet & terem, admin
+- bejegyzés, saját, de bárki
+- log, admin
+- tananyag, admin, saját kurzusát az oktató
+- vizsga, admin, saját kurzusát az oktató
