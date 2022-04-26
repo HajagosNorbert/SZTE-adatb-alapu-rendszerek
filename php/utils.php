@@ -94,7 +94,17 @@ class Utils{
         return $stid;
     }
 
-    
+    public function deleteSubscription($courseId, $studentId)
+    {
+        $sql = "delete FROM feliratkozas where hallgato_kod = :studentId and kurzus_kod = :courseId ";
+
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":studentId", $studentId);
+        oci_bind_by_name($stid, ":courseId", $courseId);
+        oci_execute($stid);
+        return $stid;
+    }
+
 //========================================================
 //===================== NEM ADATBAZIS ====================
 //========================================================

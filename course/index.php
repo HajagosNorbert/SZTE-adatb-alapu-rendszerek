@@ -31,7 +31,7 @@ $coursesCount = oci_fetch_all($stid, $courses, 0, -1, OCI_FETCHSTATEMENT_BY_ROW)
             <th class="text-center">Akció</th>
             <?php
             foreach ($courses as $row) :
-                
+                $courseId = $row["KOD"];
                 $courseName = $row['NEV'] !== null ? htmlentities($row['NEV'], ENT_QUOTES) : 'ismeretlen';
                 $studentCount = $row['LETSZAM'] !== null ? htmlentities($row['LETSZAM'], ENT_QUOTES) : '0'; 
                 $maxStudentCount = $row['MAX_LETSZAM'] !== null ? htmlentities($row['MAX_LETSZAM'], ENT_QUOTES) : 'Korlátlan';
@@ -42,16 +42,16 @@ $coursesCount = oci_fetch_all($stid, $courses, 0, -1, OCI_FETCHSTATEMENT_BY_ROW)
                 ?>
 
                 <tr>
-                <td><?=$courseName?></td>
+                <td><a href="./course.php?courseId=<?= $courseId ?>"><?=$courseName?></a></td>
                 <td><?="$studentCount / $maxStudentCount"?></td>
                 <td><?=$teacherNameText?></td>
                 <td class="text-center">
-                    <?php if(isset($_SESSION["hallgato"]) && $_SESSION["userId"] != $row["OKTATO_KOD"]): ?>
-                        // TODO: COURSE LINK
-                    <a class="btn btn-danger" href="./unsubscribeFromCourseAsStudent.php?courseId=<?= $row['KOD'] ?> ?>" >Lejelentkezés</a>
+                    
+                <?php if(isset($_SESSION["student"]) && $_SESSION["userId"] != $row["OKTATO_KOD"]): ?>
+                    <a class="btn btn-danger" href="./unsubscribeFromCourseAsStudent.php?courseId=<?= $row['KOD'] ?>&studentId=<?= $_SESSION["userId"]?>" >Lejelentkezés</a>
                 <?php endif; ?>
                 
-                <?php if(isset($row["OKTATO_KOD"]) && $_SESSION["userId"] == $row["OKTATO_KOD"] && isset($_SESSION["oktato"])): ?>
+                <?php if(isset($row["OKTATO_KOD"]) && $_SESSION["userId"] == $row["OKTATO_KOD"] && isset($_SESSION["teacher"])): ?>
 
                     <a class="btn btn-danger" href="./unsubscribeFromCourseAsTeacher.php?courseId=<?= $row['KOD'] ?>">Tanítás Leadása</a>
 

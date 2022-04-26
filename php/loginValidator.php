@@ -35,7 +35,7 @@ if(count($error) == 0){
         $_SESSION["student"] = 1;
     }
     if(!is_null($row["OKTATO_KOD"])){
-        $_SESSION["oktato"] = 1;
+        $_SESSION["teacher"] = 1;
     }
 
     header("location: /course/");
