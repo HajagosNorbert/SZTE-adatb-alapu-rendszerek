@@ -28,14 +28,15 @@ $stid = $utils->getRoomsAndBuildings();
             <th class="text-center">Akció</th>
             <?php
             while ($row = oci_fetch_assoc($stid)) :
-                $terem = $row['terem_nev'] !== null ? htmlentities($row['terem_nev'], ENT_QUOTES) : 'nincs terem hozzárendelve';
+                $teremKod = $row['terem_kod'];
+                $teremNev = $row['terem_nev'] !== null ? ', '.htmlentities($row['terem_nev'], ENT_QUOTES) : '';
                 $epulet = $row['epulet_nev'] !== null ? htmlentities($row['epulet_nev'], ENT_QUOTES) : 'nincs épület hozzárendelve';
 
                 echo "<tr>";
-                echo "<td>$terem</td>";
+                echo "<td>$teremKod$teremNev</td>";
                 echo "<td>$epulet</td>";
                 echo '<td class="text-center">
-                <a class="btn btn-danger" href="delete_execute/deleteRoom.php?terem_id='.$row['terem_kod'].'&epulet_id='.$row['epulet_kod'].'">Töröl</a>
+                <a class="btn btn-danger" href="delete_execute/deleteRoom.php?terem_id='.$teremKod.'&epulet_id='.$row['epulet_kod'].'">Töröl</a>
                 </td>';
 
                 echo "</tr>";

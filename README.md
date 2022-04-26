@@ -7,12 +7,24 @@
 - a grafika, amik a követelményekhez kellenek
 - a grafika, amelyek leírtunk a dokumentációba (don't go too crazy with it).
 
-## tODO DELETION
+## TODO 3. mérföldkő
 
-(ki törölheti? , paramétervalidálás)
+Észben tatani:
+ki törölheti? , paramétervalidálás
 
-- epulet & terem, admin
+### Laci
+
 - bejegyzés, saját, de bárki
-- log, admin
 - tananyag, admin, saját kurzusát az oktató
+- terem (amikor már az utolsó terem is elfogy)
+
+### Norbi
+
+- Hirdetmeny
 - vizsga, admin, saját kurzusát az oktató
+
+### Done from todo
+
+- epulet, admin
+- kurzusok, admin
+- log, admin
