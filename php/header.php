@@ -25,6 +25,15 @@ if(isset($_SESSION["userId"]) || isset($_SESSION["admin"])):
                 <li class="nav-item">
                     <a class="nav-link" href="/user/">Felhasználók</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/delete/courses.php">Kurzusok - törlés</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/delete/rooms.php">Termek</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/delete/logs.php">Log</a>
+                </li>
             <?php endif ?>
             
             <!-- <li class="nav-item dropdown">

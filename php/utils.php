@@ -83,10 +83,71 @@ class Utils{
         return $stid;
     }
 
+    public function getCourses(){
+
+        $sql = "SELECT kod, nev from kurzus";
+        $stid = oci_parse($this->conn, $sql);
+        oci_execute($stid);
+        return $stid;
+    }
+
+    public function deleteCourseById($courseId){
+
+        $sql = "DELETE FROM kurzus where kod = :courseId";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":courseId", $courseId);
+        oci_execute($stid);
+    }
+
+    public function getRoomsAndBuildings(){
+
+        $sql = 'SELECT terem.kod AS "terem_kod", terem.nev AS "terem_nev", epulet.kod AS "epulet_kod", epulet.nev AS "epulet_nev" FROM terem inner join epulet on terem.epulet_kod = epulet.kod';
+        $stid = oci_parse($this->conn, $sql);
+        oci_execute($stid);
+        return $stid;
+    }
+
+    public function deleteRoomById($roomId,$buildingId){
+        $delete_course = "DELETE FROM kurzus WHERE terem_kod = :roomId AND epulet_kod = :buildingId";
+        $stid_course = oci_parse($this->conn, $delete_course);
+        oci_bind_by_name($stid_course, ":roomId", $roomId);
+        oci_bind_by_name($stid_course, ":buildingId", $buildingId);
+        oci_execute($stid_course);
+
+        $delete_exam = "DELETE FROM vizsga WHERE terem_kod = :roomId AND epulet_kod = :buildingId";
+        $stid_exam = oci_parse($this->conn, $delete_exam);
+        oci_bind_by_name($stid_exam, ":roomId", $roomId);
+        oci_bind_by_name($stid_exam, ":buildingId", $buildingId);
+        oci_execute($stid_exam);
+
+
+        $delete_rooms = "DELETE FROM terem where terem.kod = :roomId AND epulet_kod = :buildingId";
+        $stid = oci_parse($this->conn, $delete_rooms);
+        oci_bind_by_name($stid, ":roomId", $roomId);
+        oci_bind_by_name($stid, ":buildingId", $buildingId);
+        oci_execute($stid);
+
+
+    }
+
+    public function getLogs(){
+        $sql = "select log.kod, felhasznalo.vezeteknev, felhasznalo.keresztnev, log.bejelentkezesi_ido from log inner join felhasznalo on log.felhasznalo_kod = felhasznalo.kod";
+        $stid = oci_parse($this->conn, $sql);
+        oci_execute($stid);
+        return $stid;
+    }
+
+    public function deleteLog($logId){
+        $sql = "DELETE FROM log where kod = :logId";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":logId", $logId);
+        oci_execute($stid);
+    }
+
+
     public function deleteUser($userId)
     {
-        $sql = "delete FROM felhasznalo where felhasznalo.kod = :userId
-        ";
+        $sql = "delete FROM felhasznalo where felhasznalo.kod = :userId";
 
         $stid = oci_parse($this->conn, $sql);
         oci_bind_by_name($stid, ":userId", $userId);
