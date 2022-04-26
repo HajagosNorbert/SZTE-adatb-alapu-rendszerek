@@ -9,23 +9,6 @@ class Utils{
         $this->conn =  (new Database()) -> connect();
     }
 
-    //felesleges. Ha tudjuk a nevet, akkor már tudnunk kell a kódot is, mert abból eredt a név
-    // public function getCourseID($course): int
-    // {
-    //     $sql = "select kod from kurzus where kod = '$course'";
-
-
-    //     $stid = oci_parse($this->conn,$sql);
-    //     oci_execute($stid);
-
-    //     $row = oci_fetch_assoc($stid);
-
-    //     if(!empty($row)){
-    //         return (int)$row["KOD"];
-    //     }
-    //     return 0;
-    // }
-
     public function getCourseById($courseId)
     {
         $sql = "select * from kurzus where kod = :courseId";
@@ -44,6 +27,30 @@ class Utils{
 
         $stid = oci_parse($this->conn,$sql);
         oci_bind_by_name($stid, ":courseId", $courseId);
+        oci_execute($stid);
+        return $stid;
+    }
+
+
+    public function getSubscribedCoursesByUserId($userId)
+    {
+
+        $sql = "select kurzus.kod, kurzus.nev, kurzus.max_letszam, count(kurzus.nev) AS letszam, f2.kod as oktato_kod, f2.keresztnev as oktato_keresztnev, f2.vezeteknev as oktato_vezeteknev
+        from kurzus 
+        inner join feliratkozas on kurzus.kod = feliratkozas.kurzus_kod 
+        inner join felhasznalo on feliratkozas.hallgato_kod = felhasznalo.kod
+        inner join felhasznalo f2 on kurzus.oktato_kod = f2.kod
+        where kurzus.oktato_kod = :userId or kurzus.kod in (
+        SELECT kurzus.kod FROM kurzus INNER JOIN feliratkozas ON kurzus.kod = feliratkozas.kurzus_kod 
+                 INNER JOIN hallgato on feliratkozas.hallgato_kod = hallgato.felhasznalo_kod
+                 INNER JOIN felhasznalo on hallgato.felhasznalo_kod = felhasznalo.kod
+                 WHERE felhasznalo.kod = :userId
+        )
+        group by kurzus.kod, kurzus.nev,kurzus.max_letszam, f2.kod, f2.keresztnev, f2.vezeteknev";
+
+
+        $stid = oci_parse($this->conn,$sql);
+        oci_bind_by_name($stid, ":userId", $userId);
         oci_execute($stid);
         return $stid;
     }

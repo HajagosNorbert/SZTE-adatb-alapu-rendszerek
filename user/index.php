@@ -58,8 +58,8 @@ $stid = $utils->getUsers();
                 echo "<td>$semester</td>";
                 echo "<td>$startedTeaching</td>";
                 echo '<td class="text-center">
-                <a class="btn btn-warning" href="./user.php?userId='.$row['KOD'].'" name="userId">Módosít</a>
-                <a class="btn btn-danger '.$disabledIfSelf.'" href="./deleteUser.php?userId='.$row['KOD'].'" name="userId">Töröl</a>
+                <a class="btn btn-warning" href="./user.php?id='.$row['KOD'].'" >Módosít</a>
+                <a class="btn btn-danger '.$disabledIfSelf.'" href="./deleteUser.php?id='.$row['KOD'].'">Töröl</a>
                 </td>';
 
                 echo "</tr>";

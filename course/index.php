@@ -1,42 +1,65 @@
 <?php 
 session_start();
-require_once("../php/connection.php");
+require_once("../php/utils.php");
 include_once("../php/header.php");
 
-
-$db = new Database();
-
-$conn = $db ->connect();
-$counter = 0;
-
-
-$kod = $_SESSION["userId"];
-
-$sql = "SELECT kurzus.nev, kurzus.kod FROM kurzus INNER JOIN feliratkozas ON kurzus.kod = feliratkozas.kurzus_kod 
-                                                               INNER JOIN hallgato on feliratkozas.hallgato_kod = hallgato.felhasznalo_kod
-                                                               INNER JOIN felhasznalo on hallgato.felhasznalo_kod = felhasznalo.kod
-                                                               WHERE felhasznalo.kod = $kod";
-
-$stid = oci_parse($conn, $sql);
-oci_execute($stid);
-
-echo "<div style='margin-left: 37%'>".
-     "<table class='table table-striped table-dark' style='width: 40%;text-align: center'>";
-
-echo "<th>Kurzus neve</th></tr>";
-while ($row = oci_fetch_assoc($stid)) {
-    $courseName = $row["NEV"] !== null ? htmlentities($row["NEV"], ENT_QUOTES) : "&nbsp;";
-    $courseId = $row["KOD"];
-
-    echo "<tr>";
-        echo "<td><a style='color: white' href='course.php?courseId=$courseId'>$courseName</a></td>";
-        $counter++;
-    echo "</tr>";
-
+if(!isset($_SESSION["userId"])){
+    header("location: /");
 }
-if($counter == 0){
-    echo "<td>Még nem vettél fel egy kurzust sem!</td>";
-}
-echo "</table>".
-     "</div>";
+
+$utils = new Utils();
+$stid = $utils->getSubscribedCoursesByUserId($_SESSION["userId"]);
+
+$coursesCount = oci_fetch_all($stid, $courses, 0, -1, OCI_FETCHSTATEMENT_BY_ROW);
+?>
+<div class="container">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row" style="margin: 15px 0">
+                <div class="col-xs-6">
+                    <h2>Kurzusok</h2>
+                </div>
+                <div class="col-xs-6 ml-auto">
+                    <a href="./user.php" class="btn btn-success"><span>Új Kurzus</span></a>
+                </div>
+            </div>
+        </div>
+        <table class='table table-striped table-dark' >
+            <th>Név</th>
+            <th>Létszám</th>
+            <th>Oktató</th>
+            <th class="text-center">Akció</th>
+            <?php
+            foreach ($courses as $row) :
+                
+                $courseName = $row['NEV'] !== null ? htmlentities($row['NEV'], ENT_QUOTES) : 'ismeretlen';
+                $studentCount = $row['LETSZAM'] !== null ? htmlentities($row['LETSZAM'], ENT_QUOTES) : '0'; 
+                $maxStudentCount = $row['MAX_LETSZAM'] !== null ? htmlentities($row['MAX_LETSZAM'], ENT_QUOTES) : 'Korlátlan';
+                $teacherLastname = $row['OKTATO_VEZETEKNEV'] !== null ? htmlentities($row['OKTATO_VEZETEKNEV'], ENT_QUOTES) : null;
+                $teacherFirstname = $row['OKTATO_KERESZTNEV'] !== null ? htmlentities($row['OKTATO_KERESZTNEV'], ENT_QUOTES) : null;
+
+                $teacherNameText = (isset($teacherFirstname) && isset($teacherLastname))? $teacherFirstname." ".$teacherLastname : "Jelenleg nincs oktató";
+                ?>
+
+                <tr>
+                <td><?=$courseName?></td>
+                <td><?="$studentCount / $maxStudentCount"?></td>
+                <td><?=$teacherNameText?></td>
+                <td class="text-center">
+                
+                <?php if(isset($_SESSION["hallgato"]) && $_SESSION["userId"] != $row["OKTATO_KOD"]): ?>
+                    <a class="btn btn-danger" href="./unsubscribeFromCourseAsStudent.php?courseId=<?= $row['KOD'] ?> ?>" >Lejelentkezés</a>
+                <?php endif; ?>
+                
+                <?php if(isset($row["OKTATO_KOD"]) && $_SESSION["userId"] == $row["OKTATO_KOD"] && isset($_SESSION["oktato"])): ?>
+                    <a class="btn btn-danger" href="./unsubscribeFromCourseAsTeacher.php?courseId=<?= $row['KOD'] ?>">Tanítás Leadása</a>
+                <?php endif; ?>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
+</div>
+
+<?php
+include_once("../php/footer.php");
 ?>

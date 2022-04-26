@@ -31,7 +31,6 @@ echo "<div style='margin-left: 37%'>".
 echo "<th>Hirdetmények</th></tr>";
 foreach ($rows as $row) {
 
-
     echo "<tr>";
     foreach ($row as $item) {
         echo "    <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>";

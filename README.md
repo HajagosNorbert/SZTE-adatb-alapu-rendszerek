@@ -17,4 +17,4 @@ kurzus törlése
 
 - oci_fetch_all
 - row is an associative array, no need to iterate through the items
-- identify with the id
+- identify with the id, from $\_GET, not $\_SESSION

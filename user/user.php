@@ -10,8 +10,8 @@ include_once("../php/header.php");
 require_once("../php/utils.php");  
 
 $utils = new Utils();
-if(isset($_GET["userId"]) && is_numeric($_GET["userId"])){
-  $stid = $utils->getUserById((int) $_GET["userId"]);
+if(isset($_GET["id"]) && is_numeric($_GET["id"])){
+  $stid = $utils->getUserById((int) $_GET["id"]);
   if($row = oci_fetch_assoc($stid)){
     $user = $row;
   }
