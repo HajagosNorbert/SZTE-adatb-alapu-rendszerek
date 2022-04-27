@@ -12,21 +12,22 @@
 Észben tatani:
 ki törölheti? , paramétervalidálás
 
-### Laci
+## todo
 
-### Norbi
+### Videó (DEMO)
 
-- adminnak az összes kurzus látszódjon
+bejelentkezés hallgatóként (5 -ös id)
+felíratkozás ( kurzusok -> lejelentkezés)
 
-### Done from todo
-
-- Épület kilistázása ha nincs hozzá terem akkor is.
-- épület törlése (amikor már az utolsó terem is elfogy)
-- vizsga, admin, saját kurzusát az oktató
-- Hirdetmeny
-- bejegyzés, saját, de bárki
-
-- tananyag, admin, saját kurzusát az oktató
-- epulet, admin
-- kurzusok, admin
-- log, admin
+bejelentkezés adminként
+hirdetmeny (kurzusok->link->hirdetmenyek)
+bejegyzés (kurzusok -> fórum)
+vizsga (vizsgák -> törlés)
+tananyag (tananyag -> törlés)
+log (log->törlés)
+hallgató (trigger: felhasznalo_torles)
+oktató (trigger: felhasznalo_torles)
+felhasználó (felhasználók ->)
+terem (termek és épületek -> törlés teremet)
+épületek (termek és épületek -> törlés terem nélküli épületet)
+kurzus (kurzusok - törlés -> delete)

@@ -37,7 +37,7 @@ if(isset($_SESSION["teacher"])){
 
         echo "<tr>";
         echo "<td>$tartalom</td>";
-        if($item["FELHASZNALO_KOD"] == $_SESSION["userId"]){
+        if( isset($_SESSION["admin"]) || $item["FELHASZNALO_KOD"] == $_SESSION["userId"]){
 
             echo '<td class="text-center">
                 <a class="btn btn-danger" href="deleteAnnouncment.php?id='.$item['KOD'].'">Töröl</a>

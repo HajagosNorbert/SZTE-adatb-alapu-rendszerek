@@ -35,7 +35,7 @@ foreach ($rows as $item) {
 
     echo "<tr>";
     echo "<td>$tartalom</td>";
-    if($item["FELHASZNALO_KOD"] == $_SESSION["userId"]){
+    if($_SESSION["admin"] || $item["FELHASZNALO_KOD"] == $_SESSION["userId"]){
 
         echo '<td class="text-center">
                 <a class="btn btn-danger" href="deleteForum.php?id='.$item['KOD'].'">Töröl</a>

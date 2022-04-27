@@ -184,12 +184,42 @@ class Utils{
 
     public function deleteUser($userId)
     {
+
+        $sql = "delete FROM feliratkozas where hallgato_kod = :userId";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":userId", $userId);
+        oci_execute($stid);
+
+        $sql = "delete FROM bejegyzes where felhasznalo_kod = :userId";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":userId", $userId);
+        oci_execute($stid);
+
+        $sql = "delete FROM hirdetmeny where felhasznalo_kod = :userId";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":userId", $userId);
+        oci_execute($stid);
+
+        $sql = "delete FROM log where felhasznalo_kod = :userId";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":userId", $userId);
+        oci_execute($stid);
+        
+        $sql = "update kurzus set oktato_kod = NULL where oktato_kod = :userId";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":userId", $userId);
+        oci_execute($stid);
+
         $sql = "delete FROM felhasznalo where felhasznalo.kod = :userId";
 
         $stid = oci_parse($this->conn, $sql);
         oci_bind_by_name($stid, ":userId", $userId);
         oci_execute($stid);
         return $stid;
+
+
+
+
     }
 
     public function deleteSubscription($courseId, $studentId)
