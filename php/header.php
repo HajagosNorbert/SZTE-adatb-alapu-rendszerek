@@ -29,27 +29,18 @@ if(isset($_SESSION["userId"]) || isset($_SESSION["admin"])):
                     <a class="nav-link" href="/delete/courses.php">Kurzusok - törlés</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/delete/rooms.php">Termek</a>
+                    <a class="nav-link" href="/delete/rooms.php">Termek és épületek</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/delete/documents.php">Doksik</a>
+                    <a class="nav-link" href="/delete/documents.php">Tananyag</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/delete/logs.php">Log</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/delete/exams.php">Vizsgák</a>
+                </li>
             <?php endif ?>
-            
-            <!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li> -->
         </ul>
 
     <?php 

@@ -23,23 +23,24 @@ $stid = $util->getUserById($userId);
 $row = oci_fetch_assoc($stid);
 
 if(count($error) == 0){
+
     if($password !== $row["JELSZO"]){
         header("location: ../index.php");
+    } else {
+        $_SESSION["userId"] = $row["KOD"];
+        if($row["ADMIN"] == 1 ){
+            $_SESSION["admin"] = 1;
+        }
+        if(!is_null($row["HALLGATO_KOD"])){
+            $_SESSION["student"] = 1;
+        }
+        if(!is_null($row["OKTATO_KOD"])){
+            $_SESSION["teacher"] = 1;
+        }
+    
+        header("location: /course/");
     }
 
-    $_SESSION["userId"] = $row["KOD"];
-    if($row["ADMIN"] == 1 ){
-        $_SESSION["admin"] = 1;
-    }
-    if(!is_null($row["HALLGATO_KOD"])){
-        $_SESSION["student"] = 1;
-    }
-    if(!is_null($row["OKTATO_KOD"])){
-        $_SESSION["teacher"] = 1;
-    }
-
-    header("location: /course/");
-  
 }
 
 

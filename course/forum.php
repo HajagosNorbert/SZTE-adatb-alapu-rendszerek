@@ -4,7 +4,7 @@ require_once "../php/connection.php";
 require_once "../php/utils.php";
 include "../php/header.php";
 
-$noAnouncementsFound = false;
+$noPostFound = false;
 $utils = new Utils();
 if(!isset($_GET["courseId"]) || !is_numeric($_GET["courseId"])){
     header("location: /course/");
@@ -19,8 +19,7 @@ if(!oci_fetch_all($courseStid, $courses, 0, -1, OCI_FETCHSTATEMENT_BY_ROW)){
 
 $stid = $utils->getBejegyzesekFromId((int) $_GET["courseId"]);
 if(!oci_fetch_all($stid, $rows, 0, -1, OCI_FETCHSTATEMENT_BY_ROW)){
-    $noAnouncementsFound = true;
-    echo"Nincs bejegyzés ehhez az courseId-hoz";
+    $noPostFound = true;
 }
 
 
@@ -47,8 +46,8 @@ foreach ($rows as $item) {
 
 
 
-if($noAnouncementsFound){
-    echo "<td>A hirdetményekhez még nem írtak</td>";
+if($noPostFound){
+    echo "<td>A kurzusfórumra még nem írtak</td>";
 }
 echo "</table>".
     "</div>";

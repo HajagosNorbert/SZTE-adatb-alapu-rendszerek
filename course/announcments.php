@@ -20,7 +20,6 @@ if(!oci_fetch_all($courseStid, $courses, 0, -1, OCI_FETCHSTATEMENT_BY_ROW)){
 $stid = $utils->getAnnouncmentsByCourseId((int) $_GET["courseId"]);
 if(!oci_fetch_all($stid, $rows, 0, -1, OCI_FETCHSTATEMENT_BY_ROW)){
     $noAnouncementsFound = true;
-    echo"Nincs hírdetmény ehhez az courseId-hoz";
 }
 
 

@@ -14,17 +14,19 @@ ki törölheti? , paramétervalidálás
 
 ### Laci
 
-- bejegyzés, saját, de bárki
-- tananyag, admin, saját kurzusát az oktató
-- terem (amikor már az utolsó terem is elfogy)
-
 ### Norbi
 
-- Hirdetmeny
-- vizsga, admin, saját kurzusát az oktató
+- adminnak az összes kurzus látszódjon
 
 ### Done from todo
 
+- Épület kilistázása ha nincs hozzá terem akkor is.
+- épület törlése (amikor már az utolsó terem is elfogy)
+- vizsga, admin, saját kurzusát az oktató
+- Hirdetmeny
+- bejegyzés, saját, de bárki
+
+- tananyag, admin, saját kurzusát az oktató
 - epulet, admin
 - kurzusok, admin
 - log, admin
