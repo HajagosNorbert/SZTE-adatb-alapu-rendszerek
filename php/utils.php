@@ -129,6 +129,30 @@ class Utils{
         return $stid;
     }
 
+    public function getRoomsAndBuildingsById($teremId,$epuletId){
+
+        $sqlBegin = 'SELECT terem.kod AS "terem_kod", terem.nev AS "terem_nev", epulet.kod AS "epulet_kod", epulet.nev AS "epulet_nev" 
+                FROM terem right join epulet on terem.epulet_kod = epulet.kod';
+
+        if($teremId != 0){
+            $sqlEnd = 'WHERE terem.kod = :teremId AND epulet.kod = :epuletId';
+        }else{
+            $sqlEnd = 'WHERE terem.nev IS NULL AND epulet.kod = :epuletId';
+        }
+
+        $sql = $sqlBegin." ". $sqlEnd;
+
+        $stid = oci_parse($this->conn, $sql);
+
+        if($teremId != 0){
+            oci_bind_by_name($stid, ":teremId", $teremId);
+        }
+
+        oci_bind_by_name($stid, ":epuletId", $epuletId);
+        oci_execute($stid);
+        return $stid;
+    }
+
     public function getRoomAndBuildingByCourseId($courseId){
 
         $sql = 'SELECT terem.kod AS "terem_kod", terem.nev AS "terem_nev", epulet.kod AS "epulet_kod", epulet.nev AS "epulet_nev" 

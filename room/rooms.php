@@ -36,7 +36,7 @@ $stid = $utils->getRoomsAndBuildings();
                 echo "<td>$teremKodText$teremNev</td>";
                 echo "<td>$epulet</td>";
                 echo '<td class="text-center">
-                <a class="btn btn-danger" href="./deleteRoom.php?terem_id='.$teremKod.'&epulet_id='.$row['epulet_kod'].'">Módosítás</a>
+                <a class="btn btn-warning" href="./roomForm.php?terem_id='.$teremKod.'&epulet_id='.$row['epulet_kod'].'">Módosítás</a>
                 <a class="btn btn-danger" href="./deleteRoom.php?terem_id='.$teremKod.'&epulet_id='.$row['epulet_kod'].'">Töröl</a>
                 </td>';
 

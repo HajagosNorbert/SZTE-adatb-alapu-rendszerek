@@ -88,8 +88,7 @@ if($rowLocations = oci_fetch_assoc($locationSelect)){
                 {
                     $selectedText = "";
                 }
-
-                if($terem_nev !== "nincs terme")
+                if($terem_kod != 0)
                 echo "<option value='$terem_kod:$epulet_kod' $selectedText>$terem_kod,$terem_nev , $epulet_nev</option>";
 
 
