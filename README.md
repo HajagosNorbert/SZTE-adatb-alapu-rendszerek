@@ -18,6 +18,8 @@
 - feltölteni a db
 - updateUser.php
 - createUser.php
+- subscribe to course as hallgato
+- subscribe to course as oktato
 
 ### Laci
 

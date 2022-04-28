@@ -44,10 +44,10 @@ class Utils{
     public function getSubscribedCoursesByUserId($userId)
     {
 
-        $sql = "select kurzus.kod, kurzus.nev, kurzus.max_letszam, count(kurzus.nev) AS letszam, f2.kod as oktato_kod, f2.keresztnev as oktato_keresztnev, f2.vezeteknev as oktato_vezeteknev
+        $sql = "select kurzus.kod, kurzus.nev, kurzus.max_letszam, count(felhasznalo.kod) AS letszam, f2.kod as oktato_kod, f2.keresztnev as oktato_keresztnev, f2.vezeteknev as oktato_vezeteknev
         from kurzus
-        inner join feliratkozas on kurzus.kod = feliratkozas.kurzus_kod 
-        inner join felhasznalo on feliratkozas.hallgato_kod = felhasznalo.kod
+        left join feliratkozas on kurzus.kod = feliratkozas.kurzus_kod 
+        left join felhasznalo on feliratkozas.hallgato_kod = felhasznalo.kod
         inner join felhasznalo f2 on kurzus.oktato_kod = f2.kod
         where kurzus.oktato_kod = :userId or kurzus.kod in (
         SELECT kurzus.kod FROM kurzus INNER JOIN feliratkozas ON kurzus.kod = feliratkozas.kurzus_kod 
@@ -100,10 +100,10 @@ class Utils{
     }
 
     public function getCoursesWithStudentCount(){
-        $sql = "select kurzus.kod, kurzus.nev, kurzus.max_letszam, count(kurzus.nev) AS letszam, f2.kod as oktato_kod, f2.keresztnev as oktato_keresztnev, f2.vezeteknev as oktato_vezeteknev
+        $sql = "select kurzus.kod, kurzus.nev, kurzus.max_letszam, count(felhasznalo.kod) AS letszam, f2.kod as oktato_kod, f2.keresztnev as oktato_keresztnev, f2.vezeteknev as oktato_vezeteknev
         from kurzus 
-        inner join feliratkozas on kurzus.kod = feliratkozas.kurzus_kod 
-        inner join felhasznalo on feliratkozas.hallgato_kod = felhasznalo.kod
+        left join feliratkozas on kurzus.kod = feliratkozas.kurzus_kod 
+        left join felhasznalo on feliratkozas.hallgato_kod = felhasznalo.kod
         inner join felhasznalo f2 on kurzus.oktato_kod = f2.kod
         group by kurzus.kod, kurzus.nev,kurzus.max_letszam, f2.kod, f2.keresztnev, f2.vezeteknev";
         $stid = oci_parse($this->conn, $sql);
@@ -273,7 +273,7 @@ class Utils{
         return $stid;
     }
     
-    public function getDoksik(){
+    public function getMaterials(){
         $sql = "SELECT kod,nev FROM tananyag";
         
         $stid = oci_parse($this->conn,$sql);
@@ -290,7 +290,7 @@ class Utils{
         return $stid;
     }
 
-    public function deleteDoksiById($doksiId){
+    public function deleteMaterialById($doksiId){
         $sql = "delete from tananyag where kod = :doksiId";
         $stid = oci_parse($this->conn, $sql);
         oci_bind_by_name($stid, ":doksiId", $doksiId);

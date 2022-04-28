@@ -6,8 +6,8 @@ if(!isset($_SESSION["userId"]) || !isset($_SESSION["admin"])){
     header("location: /");
 }
 
-require_once("../php/utils.php");
-include_once("../php/header.php");
+require_once("../../php/utils.php");
+include_once("../../php/header.php");
 $utils = new Utils();
 $stid = $utils->getExams();
 
@@ -43,7 +43,7 @@ $stid = $utils->getExams();
                 echo "<td>$time</td>";
                 echo "<td>$location</td>";
                 echo '<td class="text-center">
-                <a class="btn btn-danger" href="delete_execute/deleteExam.php?id='.$row['KOD'].'">Töröl</a>
+                <a class="btn btn-danger" href="./deleteExam.php?id='.$row['KOD'].'">Töröl</a>
                 </td>';
 
                 echo "</tr>";
@@ -54,5 +54,5 @@ $stid = $utils->getExams();
 </div>
 
 <?php
-include_once("../php/footer.php");
+include_once("../../php/footer.php");
 ?>

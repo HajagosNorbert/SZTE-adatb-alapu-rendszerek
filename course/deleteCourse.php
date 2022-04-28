@@ -1,5 +1,5 @@
 <?php
-require_once("../../php/utils.php");
+require_once("../php/utils.php");
 session_start();
 
 
@@ -9,5 +9,5 @@ if(!isset($_GET["id"]) || !is_numeric($_GET["id"]) || !isset($_SESSION["admin"])
 
 
 $utils = new Utils();
-$utils->deleteLog($_GET["id"]);
-header("location: /delete/logs.php");
+$utils->deleteCourseById($_GET["id"]);
+header("location: /course/");

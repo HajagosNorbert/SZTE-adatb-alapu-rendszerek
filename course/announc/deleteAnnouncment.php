@@ -9,5 +9,5 @@ if(!isset($_GET["id"]) || !is_numeric($_GET["id"]) ){
 $utils = new Utils();
 $utils -> deleteAnnouncmentById($_GET["id"]);
 
-header("location: /course/announc/announcments.php");
+header("location: ./");
 

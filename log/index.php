@@ -39,7 +39,7 @@ $stid = $utils->getLogs();
                 echo "<td>$keresztnev</td>";
                 echo "<td>$loginTime</td>";
                 echo '<td class="text-center">
-                <a class="btn btn-danger" href="delete_execute/deleteLog.php?id='.$row['KOD'].'">Töröl</a>
+                <a class="btn btn-danger" href="./deleteLog.php?id='.$row['KOD'].'">Töröl</a>
                 </td>';
 
                 echo "</tr>";

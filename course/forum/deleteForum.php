@@ -1,5 +1,5 @@
 <?php
-require_once("../php/utils.php");
+require_once("../../php/utils.php");
 session_start();
 
 if(!isset($_GET["id"]) || !is_numeric($_GET["id"]) ){
@@ -13,5 +13,5 @@ $courseId = ($bejegyzesCount)? $bejegyzesek[0]["KOD"] : '0';
 $utils -> deleteBejegyzesById($_GET["id"]);
 
 
-header("location: /course/forum.php?courseId=$courseId");
+header("location: /course/forum/?courseId=$courseId");
 

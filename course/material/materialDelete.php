@@ -9,5 +9,5 @@ if(!isset($_GET["id"]) || !is_numeric($_GET["id"]) || !isset($_SESSION["admin"])
 
 
 $utils = new Utils();
-$utils->deleteCourseById($_GET["id"]);
-header("location: /delete/courses.php");
+$utils->deleteMaterialById($_GET["id"]);
+header("location: ./");

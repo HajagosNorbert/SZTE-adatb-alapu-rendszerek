@@ -12,65 +12,60 @@ function coursesEqual($course){
         if ($course["KOD"] == $courseNotToInclude["KOD"]){
             return false;
         }
-        return true;
     }
+    return true;
 }
 
 
 
 
-function print_table($courses){
+function print_table($courses, $isSubscribedTable){
 ?>
-
-
 <table class='table table-striped table-dark' >
-<th>Név</th>
-<th>Létszám</th>
-<th>Oktató</th>
-<th class="text-center">Akció</th>
-<?php
-foreach ($courses as $row) :
-    $courseId = $row["KOD"];
-    $courseName = $row['NEV'] !== null ? htmlentities($row['NEV'], ENT_QUOTES) : 'ismeretlen';
-    $studentCount = $row['LETSZAM'] !== null ? htmlentities($row['LETSZAM'], ENT_QUOTES) : '0'; 
-    $maxStudentCount = $row['MAX_LETSZAM'] !== null ? htmlentities($row['MAX_LETSZAM'], ENT_QUOTES) : 'Korlátlan';
-    $teacherLastname = $row['OKTATO_VEZETEKNEV'] !== null ? htmlentities($row['OKTATO_VEZETEKNEV'], ENT_QUOTES) : null;
-    $teacherFirstname = $row['OKTATO_KERESZTNEV'] !== null ? htmlentities($row['OKTATO_KERESZTNEV'], ENT_QUOTES) : null;
+    <th>Név</th>
+    <th>Létszám</th>
+    <th>Oktató</th>
+    <th class="text-center">Akció</th>
+    <?php
+    foreach ($courses as $row) :
+        $courseId = $row["KOD"];
+        $courseName = $row['NEV'] !== null ? htmlentities($row['NEV'], ENT_QUOTES) : 'ismeretlen';
+        $studentCount = $row['LETSZAM'] !== null ? htmlentities($row['LETSZAM'], ENT_QUOTES) : '0'; 
+        $maxStudentCount = $row['MAX_LETSZAM'] !== null ? htmlentities($row['MAX_LETSZAM'], ENT_QUOTES) : 'Korlátlan';
+        $teacherLastname = $row['OKTATO_VEZETEKNEV'] !== null ? htmlentities($row['OKTATO_VEZETEKNEV'], ENT_QUOTES) : null;
+        $teacherFirstname = $row['OKTATO_KERESZTNEV'] !== null ? htmlentities($row['OKTATO_KERESZTNEV'], ENT_QUOTES) : null;
 
-    $teacherNameText = (isset($teacherFirstname) && isset($teacherLastname))? $teacherFirstname." ".$teacherLastname : "Jelenleg nincs oktató";
-    ?>
+        $teacherNameText = (isset($teacherFirstname) && isset($teacherLastname))? $teacherFirstname." ".$teacherLastname : "Jelenleg nincs oktató";
+        ?>
 
-    <tr>
-    <td><a href="./course.php?courseId=<?= $courseId ?>"><?=$courseName?></a></td>
-    <td><?="$studentCount / $maxStudentCount"?></td>
-    <td><?=$teacherNameText?></td>
-    <td class="text-center">
+        <tr>
+        <td><a href="./course.php?courseId=<?= $courseId ?>"><?=$courseName?></a></td>
+        <td><?="$studentCount / $maxStudentCount"?></td>
+        <td><?=$teacherNameText?></td>
+        <td class="text-center">
+            
+        <?php if($isSubscribedTable && isset($_SESSION["student"]) && $_SESSION["userId"] != $row["OKTATO_KOD"]): ?>
+            <a class="btn btn-danger" href="./unsubscribeFromCourseAsStudent.php?courseId=<?= $row['KOD'] ?>&studentId=<?= $_SESSION["userId"]?>" >Lejelentkezés</a>
+        <?php endif; ?>
         
-    <?php if(isset($_SESSION["student"]) && $_SESSION["userId"] != $row["OKTATO_KOD"]): ?>
-        <a class="btn btn-danger" href="./unsubscribeFromCourseAsStudent.php?courseId=<?= $row['KOD'] ?>&studentId=<?= $_SESSION["userId"]?>" >Lejelentkezés</a>
-    <?php endif; ?>
-    
-    <?php if(isset($row["OKTATO_KOD"]) && $_SESSION["userId"] == $row["OKTATO_KOD"] && isset($_SESSION["teacher"])): ?>
+        <?php if($isSubscribedTable && isset($row["OKTATO_KOD"]) && $_SESSION["userId"] == $row["OKTATO_KOD"] && isset($_SESSION["teacher"])): ?>
 
-        <a class="btn btn-danger" href="./unsubscribeFromCourseAsTeacher.php?courseId=<?= $row['KOD'] ?>">Tanítás Leadása</a>
+            <a class="btn btn-danger" href="./unsubscribeFromCourseAsTeacher.php?courseId=<?= $row['KOD'] ?>">Tanítás Leadása</a>
 
-    <?php endif; ?>
-</tr>
-<?php endforeach; ?>
+        <?php endif; ?>
+
+        <?php if(isset($_SESSION["admin"])): ?>
+
+            <a class="btn btn-danger" href="./deleteCourse.php?id=<?= $row['KOD'] ?>">Törlés</a>
+
+        <?php endif; ?>
+
+    </tr>
+    <?php endforeach; ?>
 </table>
 
 <?php
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -80,7 +75,6 @@ oci_fetch_all($stidSubscribedCourses, $subscribedCourses, 0, -1, OCI_FETCHSTATEM
 
 $stidAllCourses = $utils->getCoursesWithStudentCount();
 oci_fetch_all($stidAllCourses, $allCourses, 0, -1, OCI_FETCHSTATEMENT_BY_ROW);
-
 $coursesNotSubscribedTo = array_filter($allCourses, "coursesEqual");
 
 ?>
@@ -97,7 +91,7 @@ $coursesNotSubscribedTo = array_filter($allCourses, "coursesEqual");
             </div>
         </div>
         <?php
-            print_table($subscribedCourses);
+            print_table($subscribedCourses, true);
         ?>
         <div class="table-title">
             <div class="row" style="margin: 15px 0">
@@ -108,7 +102,7 @@ $coursesNotSubscribedTo = array_filter($allCourses, "coursesEqual");
         </div>
         <hr>
         <?php
-            print_table($coursesNotSubscribedTo);
+            print_table($coursesNotSubscribedTo, false);
         ?>
 
         

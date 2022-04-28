@@ -35,10 +35,10 @@ if(isset($_SESSION["userId"]) || isset($_SESSION["admin"])):
                     <a class="nav-link" href="/course/material/">Tananyag</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/delete/logs.php">Log</a>
+                    <a class="nav-link" href="/log/">Log</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/delete/exams.php">Vizsgák</a>
+                    <a class="nav-link" href="/course/exam/">Vizsgák</a>
                 </li>
             <?php endif ?>
         </ul>

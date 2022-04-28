@@ -17,5 +17,5 @@ $utils = new Utils();
 $utils -> deleteExamById($_GET["id"]);
 
 
-header("location: /delete/exams.php");
+header("location: /course/exam/");
 

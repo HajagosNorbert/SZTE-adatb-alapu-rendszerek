@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once "../php/connection.php";
-require_once "../php/utils.php";
-include "../php/header.php";
+require_once "../../php/connection.php";
+require_once "../../php/utils.php";
+include "../../php/header.php";
 
 $noPostFound = false;
 $utils = new Utils();
@@ -51,5 +51,5 @@ if($noPostFound){
 }
 echo "</table>".
     "</div>";
-
+include_once "../../php/footer.php";
 ?>
