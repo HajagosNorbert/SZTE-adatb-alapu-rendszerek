@@ -49,10 +49,6 @@ if(isset($_SESSION["userId"]) || isset($_SESSION["admin"])):
     ?>
     </div>
 </nav>
-
-    
-    </body>
-    </html>
 <?php 
 endif;
 ?>
