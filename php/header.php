@@ -29,10 +29,10 @@ if(isset($_SESSION["userId"]) || isset($_SESSION["admin"])):
                     <a class="nav-link" href="/delete/courses.php">Kurzusok - törlés</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/delete/rooms.php">Termek és épületek</a>
+                    <a class="nav-link" href="/room/rooms.php">Termek és épületek</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/delete/documents.php">Tananyag</a>
+                    <a class="nav-link" href="/course/material/">Tananyag</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/delete/logs.php">Log</a>

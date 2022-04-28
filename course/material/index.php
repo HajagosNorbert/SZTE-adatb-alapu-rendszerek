@@ -6,8 +6,8 @@ if(!isset($_SESSION["userId"]) || !isset($_SESSION["admin"])){
     header("location: /");
 }
 
-require_once("../php/utils.php");
-include_once("../php/header.php");
+require_once("../../php/utils.php");
+include_once("../../php/header.php");
 $utils = new Utils();
 $stid = $utils->getDoksik();
 
@@ -33,7 +33,7 @@ $stid = $utils->getDoksik();
                     echo "<tr>";
                     echo "<td>$doksi</td>";
                     echo '<td class="text-center">
-                <a class="btn btn-danger" href="delete_execute/documentDelete.php?id='.$row['KOD'].'">Töröl</a>
+                <a class="btn btn-danger" href="./materialDelete.php?id='.$row['KOD'].'">Töröl</a>
                 </td>';
 
                     echo "</tr>";
@@ -44,5 +44,5 @@ $stid = $utils->getDoksik();
     </div>
 
 <?php
-include_once("../php/footer.php");
+include_once("../../php/footer.php");
 ?>

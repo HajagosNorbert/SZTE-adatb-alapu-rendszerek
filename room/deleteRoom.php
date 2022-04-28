@@ -1,4 +1,5 @@
 <?php
+
 require_once("../../php/utils.php");
 session_start();
 
@@ -19,7 +20,7 @@ if($countResult == 0){
 }
 
 $utils->deleteRoomById($_GET["terem_id"],$_GET["epulet_id"]);
-header("location: /delete/rooms.php");
+header("location: ./rooms.php");
 
 
 

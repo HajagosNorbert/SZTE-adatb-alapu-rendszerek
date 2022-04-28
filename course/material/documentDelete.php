@@ -10,4 +10,4 @@ if(!isset($_GET["id"]) || !is_numeric($_GET["id"]) || !isset($_SESSION["admin"])
 
 $utils = new Utils();
 $utils->deleteDoksiById($_GET["id"]);
-header("location: /delete/documents.php");
+header("location: ./");
