@@ -13,9 +13,6 @@
 
 ### Norbi
 
-- course listázás bug
-- oldalátrendezés
-- feltölteni a db
 - updateUser.php
 - createUser.php
 - subscribe to course as hallgato
@@ -26,3 +23,9 @@
 - course módisítás gomb, amely ugyan oda visz, mint a new course gomb. Ez nem a course.php, hanem valami más (courseForm.php???). Nem kell a felíratkozásokkal törődni, azt majd hallgató megoldja. Teremkód, ép. kód, név, max_létszám
 
 - user.php átnevezése, ami követi a courseForm.php szerű konvenciót
+
+### done
+
+- feltölteni a db-t
+- course listázás bug
+- oldalátrendezés

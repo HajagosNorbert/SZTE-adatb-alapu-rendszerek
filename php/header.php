@@ -26,9 +26,6 @@ if(isset($_SESSION["userId"]) || isset($_SESSION["admin"])):
                     <a class="nav-link" href="/user/">Felhasználók</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/delete/courses.php">Kurzusok - törlés</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/room/rooms.php">Termek és épületek</a>
                 </li>
                 <li class="nav-item">
