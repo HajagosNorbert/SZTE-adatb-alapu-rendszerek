@@ -45,7 +45,7 @@ class Utils{
     {
 
         $sql = "select kurzus.kod, kurzus.nev, kurzus.max_letszam, count(kurzus.nev) AS letszam, f2.kod as oktato_kod, f2.keresztnev as oktato_keresztnev, f2.vezeteknev as oktato_vezeteknev
-        from kurzus 
+        from kurzus
         inner join feliratkozas on kurzus.kod = feliratkozas.kurzus_kod 
         inner join felhasznalo on feliratkozas.hallgato_kod = felhasznalo.kod
         inner join felhasznalo f2 on kurzus.oktato_kod = f2.kod
@@ -216,8 +216,6 @@ class Utils{
         oci_bind_by_name($stid, ":userId", $userId);
         oci_execute($stid);
         return $stid;
-
-
 
 
     }

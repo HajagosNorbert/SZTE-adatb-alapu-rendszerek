@@ -9,25 +9,18 @@
 
 ## TODO 3. mérföldkő
 
-Észben tatani:
-ki törölheti? , paramétervalidálás
-
 ## todo
 
-### Videó (DEMO)
+### Norbi
 
-bejelentkezés hallgatóként (5 -ös id)
-felíratkozás ( kurzusok -> lejelentkezés)
+- course listázás bug
+- oldalátrendezés
+- feltölteni a db
+- updateUser.php
+- createUser.php
 
-bejelentkezés adminként
-hirdetmeny (kurzusok->link->hirdetmenyek)
-bejegyzés (kurzusok -> fórum)
-vizsga (vizsgák -> törlés)
-tananyag (tananyag -> törlés)
-log (log->törlés)
-hallgató (trigger: felhasznalo_torles)
-oktató (trigger: felhasznalo_torles)
-felhasználó (felhasználók ->)
-terem (termek és épületek -> törlés teremet)
-épületek (termek és épületek -> törlés terem nélküli épületet)
-kurzus (kurzusok - törlés -> delete)
+### Laci
+
+- course módisítás gomb, amely ugyan oda visz, mint a new course gomb. Ez nem a course.php, hanem valami más (courseForm.php???). Nem kell a felíratkozásokkal törődni, azt majd hallgató megoldja. Teremkód, ép. kód, név, max_létszám
+
+- user.php átnevezése, ami követi a courseForm.php szerű konvenciót
