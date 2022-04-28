@@ -129,6 +129,17 @@ class Utils{
         return $stid;
     }
 
+    public function getRoomAndBuildingByCourseId($courseId){
+
+        $sql = 'SELECT terem.kod AS "terem_kod", terem.nev AS "terem_nev", epulet.kod AS "epulet_kod", epulet.nev AS "epulet_nev" 
+                FROM terem right join epulet on terem.epulet_kod = epulet.kod inner join kurzus on kurzus.terem_kod = terem.kod
+                where kurzus.kod = :courseId';
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":courseId", $courseId);
+        oci_execute($stid);
+        return $stid;
+    }
+
     public function deleteRoomById($roomId,$buildingId){
         $delete_course = "DELETE FROM kurzus WHERE terem_kod = :roomId AND epulet_kod = :buildingId";
         $stid_course = oci_parse($this->conn, $delete_course);

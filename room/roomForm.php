@@ -60,21 +60,14 @@ if($rowLocations = oci_fetch_assoc($locationSelect)){
         <div class="form-group row">
             <label for="letszam" class="col-sm-2 col-form-label">Max létszám</label>
             <div class="col-sm-10">
-                <input required name="letszam" id="letszam" type="number" class="form-control" value="<?= $maxLetszam ?>">
+                <input required name="letszam" id="letszam" type="text" class="form-control" value="<?= $maxLetszam ?>">
             </div>
         </div>
 
         <label for="helyszin">Helyszín:</label>
         <select name="helyszin" id="helyszin">
-            <option value=''>--- Válassz ki egy termet ---</option>
+            <option value=''>--- Choose a color ---</option>
             <?php
-
-            $actualRoomAndBuildingSelect = $utils -> getRoomAndBuildingByCourseId($_GET["id"]);
-
-            if($rowRoomBuilding = oci_fetch_assoc($actualRoomAndBuildingSelect)){
-                $actualRoomAndBuilding = $rowRoomBuilding;
-            }
-
             while ($rowLocations = oci_fetch_assoc($locationSelect)) :
 
                 $terem_kod = $rowLocations['terem_kod'] !== null ? htmlentities($rowLocations['terem_kod'], ENT_QUOTES) : '0';
@@ -82,15 +75,7 @@ if($rowLocations = oci_fetch_assoc($locationSelect)){
                 $epulet_nev = $rowLocations['epulet_nev'] !== null ? htmlentities($rowLocations['epulet_nev'], ENT_QUOTES) : 'hiba az épülette';
                 $epulet_kod = $rowLocations['epulet_kod'] !== null ? htmlentities($rowLocations['epulet_kod'], ENT_QUOTES) : '-1';
 
-                if(isset($actualRoomAndBuilding) && $actualRoomAndBuilding["terem_kod"] == $terem_kod && $actualRoomAndBuilding["epulet_kod"] == $epulet_kod){
-                    $selectedText = "selected";
-                }else
-                {
-                    $selectedText = "";
-                }
-
-                if($terem_nev !== "nincs terme")
-                echo "<option value='$terem_kod:$epulet_kod' $selectedText>$terem_kod,$terem_nev , $epulet_nev</option>";
+                echo "<option value='$terem_kod:$epulet_kod'>$terem_kod,$terem_nev , $epulet_nev</option>";
 
 
             endwhile;
