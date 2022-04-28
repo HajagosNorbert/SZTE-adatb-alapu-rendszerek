@@ -32,7 +32,7 @@ $stid = $utils ->getCourseById($courseId);
       </div>
   </div>
 <div style="margin-left: 42%;margin-top:10%">
-    <a href="./announcments.php?courseId=<?= $courseId ?>" class="text-decoration-none" style="color:white"><button type="button" class="btn btn-primary">Hirdetmények</button></a>
+    <a href="./announc/announcments.php?courseId=<?= $courseId ?>" class="text-decoration-none" style="color:white"><button type="button" class="btn btn-primary">Hirdetmények</button></a>
     <a href="./forum.php?courseId=<?= $courseId ?>" class="text-decoration-none" style="color:white"><button type="button" class="btn btn-primary">Kurzusfórum</button></a>
     <a href="./documents.php?courseId=<?= $courseId ?>" class="text-decoration-none" style="color:white"><button type="button" class="btn btn-primary">Dokumentumok</button></a>
 </div>

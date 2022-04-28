@@ -1,8 +1,8 @@
 <?php 
 session_start();
-require_once "../php/connection.php";
-require_once "../php/utils.php";
-include "../php/header.php";
+require_once "../../php/connection.php";
+require_once "../../php/utils.php";
+include_once "../../php/header.php";
 
 $noAnouncementsFound = false;
 $utils = new Utils();
@@ -40,7 +40,7 @@ if(isset($_SESSION["teacher"])){
         if( isset($_SESSION["admin"]) || $item["FELHASZNALO_KOD"] == $_SESSION["userId"]){
 
             echo '<td class="text-center">
-                <a class="btn btn-danger" href="deleteAnnouncment.php?id='.$item['KOD'].'">Töröl</a>
+                <a class="btn btn-danger" href="./deleteAnnouncment.php?id='.$item['KOD'].'">Töröl</a>
                 </td>';
         }
         echo "</tr>";
@@ -54,4 +54,5 @@ if($noAnouncementsFound){
 echo "</table>".
     "</div>";
 
+include_once "../../php/footer.php";
 ?>
