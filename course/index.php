@@ -47,7 +47,7 @@ function print_table($courses, $isSubscribedTable){
         <?php if($isSubscribedTable && isset($_SESSION["student"]) && $_SESSION["userId"] != $row["OKTATO_KOD"]): ?>
             <a class="btn btn-danger" href="./unsubscribeFromCourseAsStudent.php?courseId=<?= $row['KOD'] ?>&studentId=<?= $_SESSION["userId"]?>" >Lejelentkezés</a>
         <?php endif; ?>
-        
+            <a class="btn btn-warning" href="./courseForm.php?id=<?= $row['KOD'] ?>">Módosítás</a>
         <?php if($isSubscribedTable && isset($row["OKTATO_KOD"]) && $_SESSION["userId"] == $row["OKTATO_KOD"] && isset($_SESSION["teacher"])): ?>
 
             <a class="btn btn-danger" href="./unsubscribeFromCourseAsTeacher.php?courseId=<?= $row['KOD'] ?>">Tanítás Leadása</a>
@@ -86,7 +86,7 @@ $coursesNotSubscribedTo = array_filter($allCourses, "coursesEqual");
                     <h2>Felíratkozott kurzusok</h2>
                 </div>
                 <div class="col-xs-6 ml-auto">
-                    <a href="./user.php" class="btn btn-success"><span>Új Kurzus</span></a>
+                    <a href="./courseForm.php" class="btn btn-success"><span>Új Kurzus</span></a>
                 </div>
             </div>
         </div>
