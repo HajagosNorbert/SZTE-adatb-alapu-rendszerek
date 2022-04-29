@@ -18,7 +18,6 @@ function coursesEqual($course){
 
 
 
-
 function print_table($courses, $isSubscribedTable){
 ?>
 <table class='table table-striped table-dark' >
@@ -47,15 +46,15 @@ function print_table($courses, $isSubscribedTable){
         <?php if($isSubscribedTable && isset($_SESSION["student"]) && $_SESSION["userId"] != $row["OKTATO_KOD"]): ?>
             <a class="btn btn-danger" href="./unsubscribeFromCourseAsStudent.php?courseId=<?= $row['KOD'] ?>&studentId=<?= $_SESSION["userId"]?>" >Lejelentkezés</a>
         <?php endif; ?>
-            <a class="btn btn-warning" href="./courseForm.php?id=<?= $row['KOD'] ?>">Módosítás</a>
         <?php if($isSubscribedTable && isset($row["OKTATO_KOD"]) && $_SESSION["userId"] == $row["OKTATO_KOD"] && isset($_SESSION["teacher"])): ?>
-
+            
             <a class="btn btn-danger" href="./unsubscribeFromCourseAsTeacher.php?courseId=<?= $row['KOD'] ?>">Tanítás Leadása</a>
-
-        <?php endif; ?>
-
-        <?php if(isset($_SESSION["admin"])): ?>
-
+            
+            <?php endif; ?>
+            
+            <?php if(isset($_SESSION["admin"])): ?>
+                
+            <a class="btn btn-warning" href="./courseForm.php?id=<?= $row['KOD'] ?>">Módosítás</a>
             <a class="btn btn-danger" href="./deleteCourse.php?id=<?= $row['KOD'] ?>">Törlés</a>
 
         <?php endif; ?>

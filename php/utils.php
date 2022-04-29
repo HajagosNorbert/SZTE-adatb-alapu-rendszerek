@@ -48,7 +48,7 @@ class Utils{
         from kurzus
         left join feliratkozas on kurzus.kod = feliratkozas.kurzus_kod 
         left join felhasznalo on feliratkozas.hallgato_kod = felhasznalo.kod
-        inner join felhasznalo f2 on kurzus.oktato_kod = f2.kod
+        left join felhasznalo f2 on kurzus.oktato_kod = f2.kod
         where kurzus.oktato_kod = :userId or kurzus.kod in (
         SELECT kurzus.kod FROM kurzus INNER JOIN feliratkozas ON kurzus.kod = feliratkozas.kurzus_kod 
                  INNER JOIN hallgato on feliratkozas.hallgato_kod = hallgato.felhasznalo_kod
@@ -104,7 +104,7 @@ class Utils{
         from kurzus 
         left join feliratkozas on kurzus.kod = feliratkozas.kurzus_kod 
         left join felhasznalo on feliratkozas.hallgato_kod = felhasznalo.kod
-        inner join felhasznalo f2 on kurzus.oktato_kod = f2.kod
+        left join felhasznalo f2 on kurzus.oktato_kod = f2.kod
         group by kurzus.kod, kurzus.nev,kurzus.max_letszam, f2.kod, f2.keresztnev, f2.vezeteknev";
         $stid = oci_parse($this->conn, $sql);
         oci_execute($stid);
