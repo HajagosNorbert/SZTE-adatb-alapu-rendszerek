@@ -21,3 +21,20 @@ begin
     delete from vizsga where kurzus_kod = :OLD.kod;
 
 end;
+/
+
+create or replace trigger hallgato_torles
+before delete on hallgato
+for each row 
+begin
+    delete from feliratkozas where HALLGATO_KOD = :old.FELHASZNALO_KOD;
+end;
+/
+
+create or replace trigger oktato_torles
+before delete on oktato
+for each row 
+begin
+    update kurzus set oktato_kod = NULL where oktato_kod = :old.FELHASZNALO_KOD;
+end;
+/

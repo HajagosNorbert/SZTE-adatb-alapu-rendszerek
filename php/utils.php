@@ -128,6 +128,98 @@ class Utils{
         oci_execute($stid);
         return $stid;
     }
+    
+    public function updateUser($userId, $vezeteknev, $keresztnev, $jelszo, $admin, $userType, $szemeszter, $tanitas_kezdete){
+        $sql = "update felhasznalo 
+        set vezeteknev = :vezeteknev,
+        keresztnev = :keresztnev,
+        jelszo = :jelszo,
+        admin = :admin
+        where kod = :userId";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":vezeteknev", $vezeteknev);
+        oci_bind_by_name($stid, ":keresztnev", $keresztnev);
+        oci_bind_by_name($stid, ":jelszo", $jelszo);
+        oci_bind_by_name($stid, ":admin", $admin);
+        oci_bind_by_name($stid, ":userId", $userId);
+        oci_execute($stid);
+
+        if($userType == "phd"){
+            $this->createTeacherOnly($userId, $tanitas_kezdete);
+            $this->updateTeacherOnly($userId, $tanitas_kezdete);
+            $this->createStudentOnly($userId, $szemeszter);
+            $this->updateStudentOnly($userId, $szemeszter);
+        } else if ($userType == "oktato"){
+            $this->createTeacherOnly($userId, $tanitas_kezdete);
+            $this->updateTeacherOnly($userId, $tanitas_kezdete);
+            $this->deleteStudentById($userId);
+        } else if ($userType == "hallgato"){
+            $this->createStudentOnly($userId, $szemeszter);
+            $this->updateStudentOnly($userId, $szemeszter);
+            $this->deleteTeacherById($userId);
+        } else {
+            $this->deleteStudentById($userId);
+            $this->deleteTeacherById($userId);
+        }
+    }
+
+    public function updateStudentOnly($id, $szemeszter){
+        $sql = "update hallgato set szemeszter = :szemeszter where felhasznalo_kod = :id";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":szemeszter", $szemeszter);
+        oci_bind_by_name($stid, ":id", $id);
+        oci_execute($stid);
+    }
+
+    public function updateTeacherOnly($id, $tanitas_kezdete){
+        $sql = "update oktato set tanitas_kezdete = to_date( :tanitas_kezdete, 'dd-mm-yy hh24:mi:ss') where felhasznalo_kod = :id";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":tanitas_kezdete", $tanitas_kezdete);
+        oci_bind_by_name($stid, ":id", $id);
+        oci_execute($stid);
+    }
+
+    public function createStudentOnly($id, $szemeszter) {
+        $stid =  $this->getUserById($id);
+        oci_fetch_all($stid, $users, 0, -1, OCI_FETCHSTATEMENT_BY_ROW);
+        if(isset($users[0]["HALLGATO_KOD"])){
+            return;
+        }
+
+        $sql = "insert into HALLGATO values (:szemeszter, :id)";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":id", $id);
+        oci_bind_by_name($stid, ":szemeszter", $szemeszter);
+        oci_execute($stid);
+    }
+
+    public function createTeacherOnly($id, $tanitas_kezdete) {
+        $stid =  $this->getUserById($id);
+        oci_fetch_all($stid, $users, 0, -1, OCI_FETCHSTATEMENT_BY_ROW);
+        if(isset($users[0]["OKTATO_KOD"])){
+            return;
+        }
+
+        $sql = "insert into OKTATO values (to_date(:tanitas_kezdete, 'dd-mm-yy hh24:mi:ss'), :id)";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":id", $id);
+        oci_bind_by_name($stid, ":tanitas_kezdete", $tanitas_kezdete);
+        oci_execute($stid);
+    }
+
+    public function deleteTeacherById($id){
+        $sql = "DELETE FROM OKTATO WHERE FELHASZNALO_KOD = :id";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":id", $id);
+        oci_execute($stid);
+    }
+
+    public function deleteStudentById($id){
+        $sql = "DELETE FROM hallgato WHERE FELHASZNALO_KOD = :id";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":id", $id);
+        oci_execute($stid);
+    }
 
     public function getRoomsAndBuildingsById($teremId,$epuletId){
 

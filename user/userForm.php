@@ -20,6 +20,7 @@ if(isset($_GET["id"]) && is_numeric($_GET["id"])){
 $submitText = isset($user)? "Módosítások mentése" : "Új felhasználó létrehozása";
 $vezeteknev = isset($user)? $user["VEZETEKNEV"] : '';
 $keresztnev = isset($user)? $user["KERESZTNEV"] : '';
+$jelszo = isset($user)? $user["JELSZO"] : '';
 $checkedIfAdmin = (isset($user) && $user["ADMIN"])? 'checked' : '';
 $disabledIfSelf = (isset($user) && $_SESSION["userId"] === $user["KOD"])? 'disabled' : '';
 $userType = (isset($user))? $utils->determinUserType($user): 'inaktiv';
@@ -59,10 +60,16 @@ $action = isset($user)? "./updateUser.php" : "./createUser.php";
       </div>
     </div>
     <div class="form-group row">
+      <label for="jelszo" class="col-sm-2 col-form-label">Jelszó</label>
+      <div class="col-sm-10">
+        <input required name="jelszo" type="password" class="form-control" id="jelszo" value="<?= $jelszo ?>">
+      </div>
+    </div>
+    <div class="form-group row">
       <div class="col-sm-2">Admin</div>
       <div class="col-sm-10">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck1" <?= "$checkedIfAdmin $disabledIfSelf" ?>>
+          <input class="form-check-input" type="checkbox" name="admin" id="gridCheck1" <?= "$checkedIfAdmin $disabledIfSelf" ?>>
           <label class="form-check-label" for="gridCheck1">
             Admin
           </label>

@@ -19,7 +19,7 @@ $stid = $utils->getUsers();
                     <h2>Felhasználók</h2>
                 </div>
                 <div class="col-xs-6 ml-auto">
-                    <a href="./user.php" class="btn btn-success"><span>Új felhasználó</span></a>
+                    <a href="./userForm.php" class="btn btn-success"><span>Új felhasználó</span></a>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@ $stid = $utils->getUsers();
                 echo "<td>$semester</td>";
                 echo "<td>$startedTeaching</td>";
                 echo '<td class="text-center">
-                <a class="btn btn-warning" href="./user.php?id='.$row['KOD'].'" >Módosít</a>
+                <a class="btn btn-warning" href="./userForm.php?id='.$row['KOD'].'" >Módosít</a>
                 <a class="btn btn-danger '.$disabledIfSelf.'" href="./deleteUser.php?id='.$row['KOD'].'">Töröl</a>
                 </td>';
 

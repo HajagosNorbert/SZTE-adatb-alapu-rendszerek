@@ -11,7 +11,14 @@
 
 ## todo
 
+- 3 tárolt eljárás
+
 ### Norbi
+
+function createTeacherOnly()
+dátum formátum problémás lehet.
+
+update szemeszter && tanitas_kezdete in updateUser()
 
 - updateUser.php
 - createUser.php
@@ -22,10 +29,6 @@
 
 - course módisítás gomb, amely ugyan oda visz, mint a new course gomb. Ez nem a course.php, hanem valami más (courseForm.php???). Nem kell a felíratkozásokkal törődni, azt majd hallgató megoldja. Teremkód, ép. kód, név, max_létszám
 
-- user.php átnevezése, ami követi a courseForm.php szerű konvenciót
+## Beadásnál figyelni
 
-### done
-
-- feltölteni a db-t
-- course listázás bug
-- oldalátrendezés
+környezeti változókat megemlíteni
