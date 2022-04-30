@@ -1,46 +1,50 @@
-1. Listázza, hogy melyik kurzust, hányan vették fel, illetve hogy mennyi a max létszám
+1. Legújabb hirdetmény kurzuson belül
+
+select tartalom from hirdetmeny where megiras_ideje in (select MAX(megiras_ideje) from hirdetmeny);
+
+select tartalom, megiras_ideje, felhasznalo.keresztnev, felhasznalo.vezeteknev from hirdetmeny 
+inner join felhasznalo on felhasznalo.kod = hirdetmeny.felhasznalo_kod
+where megiras_ideje in (select MAX(megiras_ideje) from hirdetmeny where hirdetmeny.kurzus_kod = :courseId)
+and hirdetmeny.kurzus_kod = :courseId;
 
 
-select kurzus.nev, count(kurzus.nev) AS "letszam", kurzus.max_letszam
-from kurzus inner join feliratkozas on kurzus.kod = feliratkozas.kurzus_kod inner join felhasznalo on feliratkozas.hallgato_kod = felhasznalo.kod
-group by kurzus.nev,kurzus.max_letszam
+2. Legújabb fórum bejegyzés kurzuson belül
+
+select tartalom, megiras_ideje, felhasznalo.keresztnev, felhasznalo.vezeteknev from bejegyzes 
+inner join felhasznalo on felhasznalo.kod = bejegyzes.felhasznalo_kod
+where megiras_ideje in (select MAX(megiras_ideje) from bejegyzes where bejegyzes.kurzus_kod = :courseId)
+and bejegyzes.kurzus_kod = :courseId;
 
 
-2. Legújabb hirdetmény
+3. Legújabb dokumentum adott kurzuson belül
 
-select tartalom from hirdetmeny where megiras_ideje in (select MAX(megiras_ideje) from hirdetmeny)
+select * from (
+select tananyag.nev as tananyag_nev, KURZUS.NEV as kurzus_nev from kurzus
+left JOIN tananyag on kurzus.kod = tananyag.kurzus_kod
+ where feltoltes_datum in (select MAX(feltoltes_datum) from tananyag where kurzus_kod = :courseId)
+ and kurzus.kod = :courseId
+) where ROWNUM <= 1;
 
+4. Legfrissebb bejelentkezés személye
 
-3. Legújabb fórum bejegyzés
-
-select tartalom from bejegyzes where megiras_ideje in (select MAX(megiras_ideje) from bejegyzes)
-
-
-4. Legújabb dokumentum
-
-select nev from tananyag where feltoltes_datum in (select MAX(feltoltes_datum) from tananyag)
-
-5. Legfrissebb bejelentkezés
-
-select felhasznalo_kod from log where bejelentkezesi_ido in (select MAX(bejelentkezesi_ido) from log)
-
-
-6. Melyik vizsga melyik teremben lesz, illetve abban a teremben az adott kurzusból hány vizsga lesz
-
-select kurzus.nev, terem.nev AS "terem", count(terem.nev) AS "Vizsgák száma"
-from terem inner join vizsga on vizsga.terem_kod = terem.kod inner join kurzus on vizsga.kurzus_kod = kurzus.kod
-group by  terem.nev,kurzus.nev
-order by kurzus.nev
+select log.kod as log_kod, felhasznalo.kod as felhasznalo_kod, jelszo, keresztnev, vezeteknev, admin, szemeszter, hallgato.felhasznalo_kod as hallgato_kod, TO_CHAR(tanitas_kezdete, 'YYYY-MM-DD HH24:MI') as tanitas_kezdete, oktato.felhasznalo_kod as oktato_kod
+from log
+inner join felhasznalo on log.felhasznalo_kod = felhasznalo.kod
+left join hallgato on  hallgato.felhasznalo_kod = log.felhasznalo_kod 
+left join oktato on oktato.felhasznalo_kod = log.felhasznalo_kod
+where bejelentkezesi_ido in (select MAX(bejelentkezesi_ido) from log);
 
 
-7. Az egyes kurzusokból, hány vizsgaalkalom van meghirdetve
+5. Az egyes kurzusból, hány vizsgaalkalom van meghirdetve
+
+select kurzus.kod, kurzus.nev, count(vizsga.kurzus_kod) as vizsga_count
+from kurzus 
+left join vizsga on vizsga.kurzus_kod = kurzus.kod
+where kurzus.kod = :courseId
+group by kurzus.kod, kurzus.nev;
 
 
-select kurzus.nev, count(kurzus.nev) AS "Darab vizsga"
-from vizsga inner join kurzus on vizsga.kurzus_kod = kurzus.kod
-group by kurzus.nev
-
-8. Kiválasztja azon kurzusadatokat, oktatójának adatait és a kurzus jelenlegi létszámát, melyeknek a felhasználó oktatója, vagy fel van rá íratkozva, mint hallgató.
+6. Kiválasztja azon kurzusadatokat, oktatójának adatait és a kurzus jelenlegi létszámát, melyeknek a felhasználó oktatója, vagy fel van rá íratkozva, mint hallgató.
 
 select kurzus.kod, kurzus.nev, kurzus.max_letszam, count(felhasznalo.kod) AS letszam, f2.kod as oktato_kod, f2.keresztnev as oktato_keresztnev, f2.vezeteknev as oktato_vezeteknev
         from kurzus
@@ -55,12 +59,11 @@ select kurzus.kod, kurzus.nev, kurzus.max_letszam, count(felhasznalo.kod) AS let
         )
         group by kurzus.kod, kurzus.nev,kurzus.max_letszam, f2.kod, f2.keresztnev, f2.vezeteknev;
 
-9. Kiválasztja a kurzusok, oktatójának adatait és a kurzus jelenlegi létszámát
+7. Kiválasztja a kurzusok, oktatójának adatait és a kurzus jelenlegi létszámát
 
 select kurzus.kod, kurzus.nev, kurzus.max_letszam, count(felhasznalo.kod) AS letszam, f2.kod as oktato_kod, f2.keresztnev as oktato_keresztnev, f2.vezeteknev as oktato_vezeteknev
         from kurzus 
         left join feliratkozas on kurzus.kod = feliratkozas.kurzus_kod 
         left join felhasznalo on feliratkozas.hallgato_kod = felhasznalo.kod
         left join felhasznalo f2 on kurzus.oktato_kod = f2.kod
-        group by kurzus.kod, kurzus.nev,kurzus.max_letszam, f2.kod, f2.keresztnev, f2.vezeteknev
-
+        group by kurzus.kod, kurzus.nev,kurzus.max_letszam, f2.kod, f2.keresztnev, f2.vezeteknev;

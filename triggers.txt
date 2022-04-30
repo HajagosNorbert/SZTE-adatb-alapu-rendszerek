@@ -38,3 +38,12 @@ begin
     update kurzus set oktato_kod = NULL where oktato_kod = :old.FELHASZNALO_KOD;
 end;
 /
+
+create or replace trigger terem_torles
+before delete on terem
+for each row 
+begin
+    delete from kurzus where kurzus.terem_kod = :old.kod and kurzus.epulet_kod = :old.epulet_kod;
+    delete from vizsga where vizsga.terem_kod = :old.kod and vizsga.epulet_kod = :old.epulet_kod;
+end;
+/
