@@ -71,3 +71,9 @@ select kurzus.kod, kurzus.nev, kurzus.max_letszam, f2.kod as oktato_kod, f2.kere
         inner JOIN terem on kurzus.terem_kod = terem.kod AND kurzus.epulet_kod = terem.epulet_kod
         inner JOIN epulet on epulet.kod = terem.epulet_kod
         group by kurzus.kod, kurzus.nev,kurzus.max_letszam, f2.kod, f2.keresztnev, f2.vezeteknev, kurzus.terem_kod , epulet.nev;
+
+8. Listázza az épületeket és hogy hány terem van az adott épülethez adva
+
+select  epulet.kod AS "epulet_id",epulet.nev,count(terem.kod) AS "darab"
+                from epulet left join terem on epulet.kod = terem.epulet_kod
+                group by epulet.kod,epulet.nev

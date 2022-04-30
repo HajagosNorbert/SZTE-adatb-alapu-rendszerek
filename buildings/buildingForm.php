@@ -20,12 +20,12 @@ if(isset($_GET["epulet_id"]) && is_numeric($_GET["epulet_id"])){
 
 
 
-$submitText = isset($building)? "Módosítások mentése" : "Új terem felvitele";
+$submitText = isset($building)? "Módosítások mentése" : "Új épület felvitele";
 $epuletNeve = isset($building)? $building["NEV"] : '';
 $epuletKodja = isset($building)? $building["KOD"] : '';
 
 
-$action = isset($building)? "./updateRoom.php" : "./createRoom.php";
+$action = isset($building)? "./updateBuilding.php" : "./createBuilding.php";
 
 
 
@@ -38,7 +38,7 @@ $action = isset($building)? "./updateRoom.php" : "./createRoom.php";
                 <h2>Épület</h2>
             </div>
             <div class="col-xs-6 ml-auto">
-                <button type="submit" class="btn btn-success" name="saveLocation"><?= $submitText ?></button>
+                <button type="submit" class="btn btn-success" name="saveBuilding"><?= $submitText ?></button>
             </div>
         </div>
 

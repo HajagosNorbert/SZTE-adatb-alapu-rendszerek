@@ -144,7 +144,7 @@ class Utils{
 
     public function getRoomsAndBuildings(){
 
-        $sql = 'SELECT terem.kod AS "terem_kod", terem.nev AS "terem_nev", epulet.kod AS "epulet_kod", epulet.nev AS "epulet_nev" FROM terem right join epulet on terem.epulet_kod = epulet.kod';
+        $sql = 'SELECT terem.kod AS "terem_kod", terem.nev AS "terem_nev", epulet.kod AS "epulet_kod", epulet.nev AS "epulet_nev" FROM terem left join epulet on terem.epulet_kod = epulet.kod';
         $stid = oci_parse($this->conn, $sql);
         oci_execute($stid);
         return $stid;
@@ -172,12 +172,23 @@ class Utils{
         return $userId;
     }
 
-    public function updateRoom(int $ujTeremKod,string $ujTeremNev,int $regiTeremKod,int $epuletKod){
+    public function updateRoom($ujTeremKod,$ujTeremNev,$regiTeremKod,$regiEpuletKod,$ujEpuletKod){
 
-        $sql = "BEGIN updateTerem('$ujTeremNev',$ujTeremKod,$regiTeremKod,$epuletKod); END;";
-        var_dump($sql);
+        $sql = "BEGIN updateTerem('$ujTeremNev',$ujTeremKod,$regiTeremKod,$regiEpuletKod,$ujEpuletKod); END;";
 
         $stid = oci_parse($this ->conn, $sql);
+
+
+        oci_execute($stid);
+
+    }
+
+    public function createRoom($kod, $nev,$epulet){
+
+        $sql = "BEGIN createRoom('$nev',$kod,$epulet); END;";
+        var_dump($sql);
+
+        $stid = oci_parse($this->conn, $sql);
 
         oci_execute($stid);
 
@@ -315,6 +326,31 @@ class Utils{
         oci_bind_by_name($stid, ":buildingId", $buildingId);
         oci_execute($stid);
         return $stid;
+    }
+
+    public function getBuildings(){
+        $sql = 'select  epulet.kod AS "epulet_id",epulet.nev,count(terem.kod) AS "darab" 
+                from epulet left join terem on epulet.kod = terem.epulet_kod 
+                group by epulet.kod,epulet.nev';
+        $stid = oci_parse($this->conn, $sql);
+        oci_execute($stid);
+        return $stid;
+    }
+
+    public function deleteBuilding($buildingId){
+        $sql = "BEGIN deleteBuilding($buildingId); END;";
+
+        $stid = oci_parse($this->conn, $sql);
+        oci_execute($stid);
+    }
+
+    public function createBuilding($name,$buildingId){
+
+        $sql = "BEGIN createBuilding($buildingId,'$name'); END;";
+        var_dump($sql);
+        $stid = oci_parse($this->conn, $sql);
+        oci_execute($stid);
+
     }
 
     public function getRoomAndBuildingByCourseId($courseId){

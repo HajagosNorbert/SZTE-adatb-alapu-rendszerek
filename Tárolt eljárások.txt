@@ -1,14 +1,42 @@
-1.
+1. terem update //nem működik a kulcs ütközés miatt
 
-create or replace procedure updateTerem (ujTeremNev in varchar2, ujTeremKod in number, regiTeremKod in number, epuletKod in number) as
+create or replace procedure updateTerem (ujTeremNev in varchar2, ujTeremKod in number, regiTeremKod in number, regiEpuletKod in number, ujEpuletKod in number) as
 begin
 
 
 
-    UPDATE terem SET nev = updateTerem.ujTeremNev, kod = updateTerem.ujTeremKod 
-    WHERE terem.epulet_kod = updateTerem.epuletKod AND kod = updateTerem.regiTeremKod;
-    
+    UPDATE terem SET nev = updateTerem.ujTeremNev, kod = updateTerem.ujTeremKod,epulet_kod = updateTerem.ujEpuletKod
+    WHERE terem.epulet_kod = updateTerem.regiEpuletKod AND kod = updateTerem.regiTeremKod;
+
 
 end;
 
 
+2. új épület
+
+create or replace procedure createBuilding(buildingId in number,name in varchar2) as
+begin
+
+    insert into epulet values(createBuilding.buildingId,createBuilding.name);
+
+end;
+
+3. új terem
+
+create or replace procedure createRoom(nev in varchar2, kod in number, epuletKod in number)as
+begin
+
+
+    insert into terem values(createRoom.kod,createRoom.nev,createRoom.epuletKod);
+
+end;
+
+4. épület törlés
+
+create or replace procedure deleteBuilding(buildingId in number) as
+begin
+
+    delete from terem where epulet_kod = deleteBuilding.buildingId;
+    delete from epulet where kod = deleteBuilding.buildingId;
+
+end;

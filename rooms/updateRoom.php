@@ -10,6 +10,7 @@ if(!isset($_POST["saveRoom"]) || !isset($_SESSION["admin"])){
 
 $teremNev = trim($_POST["teremNev"]);
 $ujTeremKod = trim($_POST["teremKod"]);
+$ujEpuletKod = trim($_POST["epuletKod"]);
 
 $regiTeremKod = $_GET["terem_id"];
 $epuletId = $_GET["epulet_id"];
@@ -17,7 +18,7 @@ $epuletId = $_GET["epulet_id"];
 $utils = new Utils();
 
 
-$utils->updateRoom($ujTeremKod,$teremNev,$regiTeremKod,$epuletId);
+$utils->updateRoom($ujTeremKod,$teremNev,$regiTeremKod,$epuletId,$ujEpuletKod);
 
 
-header("location: ./locations.php");
+header("location: ./");

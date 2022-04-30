@@ -11,22 +11,22 @@ require_once("../php/utils.php");
 
 $utils = new Utils();
 if(isset($_GET["terem_id"]) && is_numeric($_GET["terem_id"]) && isset($_GET["epulet_id"]) && is_numeric($_GET["epulet_id"])){
-    $stid = $utils->getRoomsAndBuildingsById((int) $_GET["terem_id"],(int)$_GET["epulet_id"]);
+    $stid = $utils->getRoomById((int) $_GET["terem_id"]);
     if($row = oci_fetch_assoc($stid)){
-        $location = $row;
+        $room = $row;
     }
 
 }
 
 
 
-$submitText = isset($location)? "Módosítások mentése" : "Új kurzus felvitele";
-$teremNeve = isset($location)? $location["terem_nev"] : '';
-$teremKodja = isset($location)? $location["terem_kod"] : '';
+$submitText = isset($room)? "Módosítások mentése" : "Új terem felvitele";
+$teremNeve = isset($room)? $room["NEV"] : '';
+$teremKodja = isset($room)? $room["KOD"] : '';
+$epuletKodja = isset($room) ? $_GET["epulet_id"] : '';
 
-$epuletNeve = isset($location)? $location["epulet_nev"] : '';
-$epuletKodja = isset($location)? $location["epulet_kod"] : '';
-$action = isset($location)? "./updateRoom.php" : "./createRoom.php";
+
+$action = isset($room)? "./updateRoom.php?terem_id=$teremKodja&epulet_id=$epuletKodja" : "./createRoom.php";
 
 
 
@@ -36,10 +36,10 @@ $action = isset($location)? "./updateRoom.php" : "./createRoom.php";
     <form method="post" action="<?= $action ?>" >
         <div class="row" style="margin: 35px 0;">
             <div class="col-xs-6">
-                <h2>Felhasználó</h2>
+                <h2>Terem</h2>
             </div>
             <div class="col-xs-6 ml-auto">
-                <button type="submit" class="btn btn-success" name="saveLocation"><?= $submitText ?></button>
+                <button type="submit" class="btn btn-success" name="saveRoom"><?= $submitText ?></button>
             </div>
         </div>
 
@@ -56,17 +56,12 @@ $action = isset($location)? "./updateRoom.php" : "./createRoom.php";
             </div>
         </div>
         <div class="form-group row">
-            <label for="epuletNev" class="col-sm-2 col-form-label">Épület neve</label>
-            <div class="col-sm-10">
-                <input required name="epuletNev" id="epuletNev" type="text" class="form-control" value="<?= $epuletNeve ?>">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="epuletKod" class="col-sm-2 col-form-label">Épület kódja</label>
+            <label for="teremKod" class="col-sm-2 col-form-label">Épület kódja</label>
             <div class="col-sm-10">
                 <input required name="epuletKod" id="epuletKod" type="number" class="form-control" value="<?= $epuletKodja ?>">
             </div>
         </div>
+
 
 
     </form>
