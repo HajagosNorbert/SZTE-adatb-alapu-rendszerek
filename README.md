@@ -8,6 +8,7 @@
 - createUser.php
 - subscribe to course as hallgato (phd ne jelentkezhessen fel saját kurzusára)
 - subscribe to course as oktato
+- unsubscribe from course as oktato
 - (maybe a létező form-okhoz mekcsinálni a logikát)
 
 ### Laci

@@ -7,6 +7,6 @@ if(!isset($_GET["courseId"]) || !is_numeric($_GET["courseId"]) || !isset($_SESSI
 }
 
 $utils = new Utils();
-$utils -> unsubscribeFromCourseAsTeacher($_GET["courseId"]);
+$utils -> subscribeToCourseAsTeacher($_GET["courseId"], $_SESSION["userId"]);
 
 header("location: ./");

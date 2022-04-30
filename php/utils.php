@@ -99,6 +99,23 @@ class Utils{
         return $stid;
     }
 
+    public function subscribeToCourseAsTeacher($courseId, $userId){
+        $sql = "UPDATE KURZUS SET OKTATO_KOD = :userId where kod = :courseId";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":userId", $userId);
+        oci_bind_by_name($stid, ":courseId", $courseId);
+        oci_execute($stid);
+        return $stid;
+    }
+
+    public function unsubscribeFromCourseAsTeacher($courseId){
+        $sql = "UPDATE KURZUS SET OKTATO_KOD = NULL where kod = :courseId";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":courseId", $courseId);
+        oci_execute($stid);
+        return $stid;
+    }
+
     public function getCoursesWithStudentCount(){
         $sql = "select kurzus.kod, kurzus.nev, kurzus.max_letszam, count(felhasznalo.kod) AS letszam, f2.kod as oktato_kod, f2.keresztnev as oktato_keresztnev, f2.vezeteknev as oktato_vezeteknev
         from kurzus 

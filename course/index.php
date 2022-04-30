@@ -47,17 +47,25 @@ function print_table($courses, $isSubscribedTable){
             <a class="btn btn-danger" href="./unsubscribeFromCourseAsStudent.php?courseId=<?= $row['KOD'] ?>&studentId=<?= $_SESSION["userId"]?>" >Lejelentkezés</a>
         <?php endif; ?>
         <?php if($isSubscribedTable && isset($row["OKTATO_KOD"]) && $_SESSION["userId"] == $row["OKTATO_KOD"] && isset($_SESSION["teacher"])): ?>
-            
             <a class="btn btn-danger" href="./unsubscribeFromCourseAsTeacher.php?courseId=<?= $row['KOD'] ?>">Tanítás Leadása</a>
-            
-            <?php endif; ?>
-            
-            <?php if(isset($_SESSION["admin"])): ?>
+        <?php endif; ?>
+
+        <?php if(!$isSubscribedTable && !isset($row["OKTATO_KOD"]) && isset($_SESSION["teacher"])): ?>
+            <a class="btn btn-success" href="./subscribeToCourseAsTeacher.php?courseId=<?= $row['KOD'] ?>">Tanítás Vállalása</a>
+        <?php endif; ?>
+        
+        <?php if(!$isSubscribedTable && isset($_SESSION["student"])): ?>
+            <a class="btn btn-success" href="./subscribeToCourseAsStudent.php?courseId=<?= $row['KOD'] ?>">Kurzus Felvétele</a>
+        <?php endif; ?>
+
+        <?php if(isset($_SESSION["admin"])): ?>
                 
             <a class="btn btn-warning" href="./courseForm.php?id=<?= $row['KOD'] ?>">Módosítás</a>
             <a class="btn btn-danger" href="./deleteCourse.php?id=<?= $row['KOD'] ?>">Törlés</a>
 
         <?php endif; ?>
+
+
 
     </tr>
     <?php endforeach; ?>
@@ -103,9 +111,6 @@ $coursesNotSubscribedTo = array_filter($allCourses, "coursesEqual");
         <?php
             print_table($coursesNotSubscribedTo, false);
         ?>
-
-        
-
     </div>
 </div>
 
