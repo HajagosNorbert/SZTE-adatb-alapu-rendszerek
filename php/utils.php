@@ -284,6 +284,24 @@ class Utils{
         return $stid;
     }
 
+    public function getRoomById($roomId){
+        $sql = "select * from terem where kod = :roomId";
+
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":roomId", $roomId);
+        oci_execute($stid);
+        return $stid;
+    }
+
+    public function getBuildingById($buildingId){
+        $sql = "select * from epulet where kod = :buildingId";
+
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":buildingId", $buildingId);
+        oci_execute($stid);
+        return $stid;
+    }
+
     public function getRoomAndBuildingByCourseId($courseId){
 
         $sql = 'SELECT terem.kod AS "terem_kod", terem.nev AS "terem_nev", epulet.kod AS "epulet_kod", epulet.nev AS "epulet_nev" 

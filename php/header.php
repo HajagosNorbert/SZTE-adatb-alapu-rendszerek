@@ -26,7 +26,7 @@ if(isset($_SESSION["userId"]) || isset($_SESSION["admin"])):
                     <a class="nav-link" href="/user/">Felhasználók</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/room/rooms.php">Termek és épületek</a>
+                    <a class="nav-link" href="/location/locations.php">Termek és épületek</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/log/">Log</a>
