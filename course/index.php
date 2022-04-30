@@ -23,6 +23,7 @@ function print_table($courses, $isSubscribedTable){
 <table class='table table-striped table-dark' >
     <th>Név</th>
     <th>Létszám</th>
+    <th>Helyszín</th>
     <th>Oktató</th>
     <th class="text-center">Akció</th>
     <?php
@@ -35,11 +36,19 @@ function print_table($courses, $isSubscribedTable){
         $teacherFirstname = $row['OKTATO_KERESZTNEV'] !== null ? htmlentities($row['OKTATO_KERESZTNEV'], ENT_QUOTES) : null;
 
         $teacherNameText = (isset($teacherFirstname) && isset($teacherLastname))? $teacherFirstname." ".$teacherLastname : "Jelenleg nincs oktató";
+        
+        
+        $teremKod = isset($row['TEREM_KOD'])? $row['TEREM_KOD']: 0 ;
+        $epulet = $row['EPULET_NEV'] !== null ? htmlentities($row['EPULET_NEV'], ENT_QUOTES) : 'nincs épület hozzárendelve';
+        $location = "$teremKod, $epulet";
+
         ?>
+
 
         <tr>
         <td><a href="./course.php?courseId=<?= $courseId ?>"><?=$courseName?></a></td>
         <td><?="$studentCount / $maxStudentCount"?></td>
+        <td><?=$location?></td>
         <td><?=$teacherNameText?></td>
         <td class="text-center">
             

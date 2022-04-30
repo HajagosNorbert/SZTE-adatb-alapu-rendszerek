@@ -44,18 +44,20 @@ class Utils{
     public function getSubscribedCoursesByUserId($userId)
     {
 
-        $sql = "select kurzus.kod, kurzus.nev, kurzus.max_letszam, count(felhasznalo.kod) AS letszam, f2.kod as oktato_kod, f2.keresztnev as oktato_keresztnev, f2.vezeteknev as oktato_vezeteknev
+        $sql = "select kurzus.kod, kurzus.nev, kurzus.max_letszam, count(felhasznalo.kod) AS letszam, f2.kod as oktato_kod, f2.keresztnev as oktato_keresztnev, f2.vezeteknev as oktato_vezeteknev, kurzus.terem_kod as terem_kod, epulet.nev as epulet_nev
         from kurzus
         left join feliratkozas on kurzus.kod = feliratkozas.kurzus_kod 
         left join felhasznalo on feliratkozas.hallgato_kod = felhasznalo.kod
         left join felhasznalo f2 on kurzus.oktato_kod = f2.kod
+        inner JOIN terem on kurzus.terem_kod = terem.kod  AND kurzus.epulet_kod = terem.epulet_kod
+        inner JOIN epulet on epulet.kod = terem.epulet_kod
         where kurzus.oktato_kod = :userId or kurzus.kod in (
         SELECT kurzus.kod FROM kurzus INNER JOIN feliratkozas ON kurzus.kod = feliratkozas.kurzus_kod 
                  INNER JOIN hallgato on feliratkozas.hallgato_kod = hallgato.felhasznalo_kod
                  INNER JOIN felhasznalo on hallgato.felhasznalo_kod = felhasznalo.kod
                  WHERE felhasznalo.kod = :userId
         )
-        group by kurzus.kod, kurzus.nev,kurzus.max_letszam, f2.kod, f2.keresztnev, f2.vezeteknev";
+        group by kurzus.kod, kurzus.nev,kurzus.max_letszam, f2.kod, f2.keresztnev, f2.vezeteknev,  kurzus.terem_kod , epulet.nev";
 
 
         $stid = oci_parse($this->conn,$sql);
@@ -117,12 +119,14 @@ class Utils{
     }
 
     public function getCoursesWithStudentCount(){
-        $sql = "select kurzus.kod, kurzus.nev, kurzus.max_letszam, count(felhasznalo.kod) AS letszam, f2.kod as oktato_kod, f2.keresztnev as oktato_keresztnev, f2.vezeteknev as oktato_vezeteknev
+        $sql = "select kurzus.kod, kurzus.nev, kurzus.max_letszam, f2.kod as oktato_kod, f2.keresztnev as oktato_keresztnev, f2.vezeteknev as oktato_vezeteknev, kurzus.terem_kod as terem_kod, epulet.nev as epulet_nev, count(felhasznalo.kod) AS letszam
         from kurzus 
         left join feliratkozas on kurzus.kod = feliratkozas.kurzus_kod 
         left join felhasznalo on feliratkozas.hallgato_kod = felhasznalo.kod
         left join felhasznalo f2 on kurzus.oktato_kod = f2.kod
-        group by kurzus.kod, kurzus.nev,kurzus.max_letszam, f2.kod, f2.keresztnev, f2.vezeteknev";
+        inner JOIN terem on kurzus.terem_kod = terem.kod AND kurzus.epulet_kod = terem.epulet_kod
+        inner JOIN epulet on epulet.kod = terem.epulet_kod
+        group by kurzus.kod, kurzus.nev,kurzus.max_letszam, f2.kod, f2.keresztnev, f2.vezeteknev, kurzus.terem_kod , epulet.nev";
         $stid = oci_parse($this->conn, $sql);
         oci_execute($stid);
         return $stid;
