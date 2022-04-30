@@ -146,6 +146,28 @@ class Utils{
         return $stid;
     }
     
+    public function createUser($vezeteknev, $keresztnev, $jelszo, $admin, $userType, $szemeszter, $tanitas_kezdete): int{
+
+        $sql = "INSERT INTO felhasznalo (kod, jelszo, keresztnev, vezeteknev, admin) values (default, :jelszo, :keresztnev, :vezeteknev, :admin) returning kod into :userId";
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":vezeteknev", $vezeteknev);
+        oci_bind_by_name($stid, ":keresztnev", $keresztnev);
+        oci_bind_by_name($stid, ":jelszo", $jelszo);
+        oci_bind_by_name($stid, ":admin", $admin);
+        oci_bind_by_name($stid, ":userId", $userId, -1, SQLT_INT);
+        oci_execute($stid);
+        if($userType == "phd"){
+            $this->createTeacherOnly($userId, $tanitas_kezdete);
+            $this->createStudentOnly($userId, $szemeszter);
+        } else if ($userType == "oktato"){
+            $this->createTeacherOnly($userId, $tanitas_kezdete);
+        } else if ($userType == "hallgato"){
+            $this->createStudentOnly($userId, $szemeszter);
+        }
+
+        return $userId;
+    }
+    
     public function updateUser($userId, $vezeteknev, $keresztnev, $jelszo, $admin, $userType, $szemeszter, $tanitas_kezdete){
         $sql = "update felhasznalo 
         set vezeteknev = :vezeteknev,

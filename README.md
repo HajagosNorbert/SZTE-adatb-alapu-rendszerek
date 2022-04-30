@@ -5,7 +5,6 @@
 
 ### Norbi
 
-- createUser.php
 - (maybe a létező form-okhoz mekcsinálni a logikát)
 
 ### Laci
