@@ -364,6 +364,18 @@ class Utils{
 
     }
 
+    public function createSubscription($courseId, $studentId)
+    {
+        $sql = "INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES (:studentId, :courseId)";
+
+        $stid = oci_parse($this->conn, $sql);
+        oci_bind_by_name($stid, ":studentId", $studentId);
+        oci_bind_by_name($stid, ":courseId", $courseId);
+        oci_execute($stid);
+        return $stid;
+    }
+    
+
     public function deleteSubscription($courseId, $studentId)
     {
         $sql = "delete FROM feliratkozas where hallgato_kod = :studentId and kurzus_kod = :courseId ";
