@@ -171,6 +171,17 @@ class Utils{
 
         return $userId;
     }
+
+    public function updateRoom(int $ujTeremKod,string $ujTeremNev,int $regiTeremKod,int $epuletKod){
+
+        $sql = "BEGIN updateTerem('$ujTeremNev',$ujTeremKod,$regiTeremKod,$epuletKod); END;";
+        var_dump($sql);
+
+        $stid = oci_parse($this ->conn, $sql);
+
+        oci_execute($stid);
+
+    }
     
     public function updateUser($userId, $vezeteknev, $keresztnev, $jelszo, $admin, $userType, $szemeszter, $tanitas_kezdete){
         $sql = "update felhasznalo 

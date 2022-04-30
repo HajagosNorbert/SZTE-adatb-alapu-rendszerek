@@ -1,0 +1,14 @@
+1.
+
+create or replace procedure updateTerem (ujTeremNev in varchar2, ujTeremKod in number, regiTeremKod in number, epuletKod in number) as
+begin
+
+
+
+    UPDATE terem SET nev = updateTerem.ujTeremNev, kod = updateTerem.ujTeremKod 
+    WHERE terem.epulet_kod = updateTerem.epuletKod AND kod = updateTerem.regiTeremKod;
+    
+
+end;
+
+

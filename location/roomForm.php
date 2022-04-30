@@ -10,7 +10,7 @@ include_once("../php/header.php");
 require_once("../php/utils.php");
 
 $utils = new Utils();
-if(isset($_GET["terem_id"]) && is_numeric($_GET["terem_id"])){
+if(isset($_GET["terem_id"]) && is_numeric($_GET["terem_id"]) && isset($_GET["epulet_id"]) && is_numeric($_GET["epulet_id"])){
     $stid = $utils->getRoomById((int) $_GET["terem_id"]);
     if($row = oci_fetch_assoc($stid)){
         $room = $row;
@@ -23,9 +23,10 @@ if(isset($_GET["terem_id"]) && is_numeric($_GET["terem_id"])){
 $submitText = isset($room)? "Módosítások mentése" : "Új terem felvitele";
 $teremNeve = isset($room)? $room["NEV"] : '';
 $teremKodja = isset($room)? $room["KOD"] : '';
+$epuletKodja = isset($room) ? $_GET["epulet_id"] : '';
 
 
-$action = isset($room)? "./updateRoom.php" : "./createRoom.php";
+$action = isset($room)? "./updateRoom.php?terem_id=$teremKodja&epulet_id=$epuletKodja" : "./createRoom.php";
 
 
 
@@ -38,7 +39,7 @@ $action = isset($room)? "./updateRoom.php" : "./createRoom.php";
                 <h2>Terem</h2>
             </div>
             <div class="col-xs-6 ml-auto">
-                <button type="submit" class="btn btn-success" name="saveLocation"><?= $submitText ?></button>
+                <button type="submit" class="btn btn-success" name="saveRoom"><?= $submitText ?></button>
             </div>
         </div>
 
