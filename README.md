@@ -5,7 +5,6 @@
 
 ### Norbi
 
-- delete terem egy triggert
 - (maybe a létező form-okhoz mekcsinálni a logikát)
 - vizsgák listázása egy kurzuson belül
 
