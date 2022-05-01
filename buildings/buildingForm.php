@@ -19,12 +19,8 @@ if(isset($_GET["epulet_id"]) && is_numeric($_GET["epulet_id"])){
 }
 
 
-
 $submitText = isset($building)? "Módosítások mentése" : "Új épület felvitele";
 $epuletNeve = isset($building)? $building["NEV"] : '';
-$epuletKodja = isset($building)? $building["KOD"] : '';
-
-
 $action = isset($building)? "./updateBuilding.php" : "./createBuilding.php";
 
 
@@ -48,14 +44,6 @@ $action = isset($building)? "./updateBuilding.php" : "./createBuilding.php";
                 <input required name="epuletNev" id="epuletNev" type="text" class="form-control" value="<?= $epuletNeve ?>">
             </div>
         </div>
-        <div class="form-group row">
-            <label for="epuletKod" class="col-sm-2 col-form-label">Épület kódja</label>
-            <div class="col-sm-10">
-                <input required name="epuletKod" id="epuletKod" type="number" class="form-control" value="<?= $epuletKodja ?>">
-            </div>
-        </div>
-
-
     </form>
 </div>
 <?php

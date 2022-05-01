@@ -2,7 +2,7 @@
 session_start();
 
 
-if(!isset($_SESSION["userId"]) || !isset($_SESSION["admin"])){
+if(!isset($_SESSION["userId"])){
     header("location: /");
 }
 
@@ -42,9 +42,12 @@ $stid = $utils->getExams();
                 echo "<td>$courseName</td>";
                 echo "<td>$time</td>";
                 echo "<td>$location</td>";
-                echo '<td class="text-center">
-                <a class="btn btn-danger" href="./deleteExam.php?id='.$row['KOD'].'">Töröl</a>
-                </td>';
+
+                if (isset($_SESSION["admin"])){
+                    echo '<td class="text-center">
+                    <a class="btn btn-danger" href="./deleteExam.php?id='.$row['KOD'].'">Töröl</a>
+                    </td>';
+                }
 
                 echo "</tr>";
             endwhile;

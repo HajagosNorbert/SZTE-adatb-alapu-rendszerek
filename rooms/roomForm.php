@@ -46,7 +46,7 @@ $action = isset($room)? "./updateRoom.php?terem_id=$teremKodja&epulet_id=$epulet
         <div class="form-group row">
             <label for="teremNev" class="col-sm-2 col-form-label">Terem neve</label>
             <div class="col-sm-10">
-                <input required name="teremNev" type="text" class="form-control" id="teremNev" value="<?= $teremNeve ?>">
+                <input name="teremNev" type="text" class="form-control" id="teremNev" value="<?= $teremNeve ?>">
             </div>
         </div>
         <div class="form-group row">

@@ -11,7 +11,7 @@ if(!isset($_POST["saveBuilding"]) || !isset($_SESSION["admin"])){
 $utils = new Utils();
 
 $buildingName = trim($_POST["epuletNev"]);
-$buildingId = trim($_POST["epuletKod"]);
 
-$utils->createBuilding($buildingName,$buildingId);
+
+$utils->createBuilding($buildingName);
 header("location: ./");

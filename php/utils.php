@@ -344,9 +344,9 @@ class Utils{
         oci_execute($stid);
     }
 
-    public function createBuilding($name,$buildingId){
+    public function createBuilding($name){
 
-        $sql = "BEGIN createBuilding($buildingId,'$name'); END;";
+        $sql = "BEGIN createBuilding('$name'); END;";
         var_dump($sql);
         $stid = oci_parse($this->conn, $sql);
         oci_execute($stid);

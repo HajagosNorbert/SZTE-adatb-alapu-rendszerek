@@ -21,6 +21,9 @@ if(isset($_SESSION["userId"]) || isset($_SESSION["admin"])):
             <li class="nav-item">
                 <a class="nav-link" href="/course/">Kurzusok</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/course/exam/">Vizsgák</a>
+            </li>
             <?php if (isset($_SESSION["admin"])): ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/user/">Felhasználók</a>
@@ -33,9 +36,6 @@ if(isset($_SESSION["userId"]) || isset($_SESSION["admin"])):
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/log/">Log</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/course/exam/">Vizsgák</a>
                 </li>
             <?php endif ?>
         </ul>

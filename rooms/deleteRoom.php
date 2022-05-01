@@ -13,7 +13,7 @@ $utils = new Utils();
 
 
 $utils->deleteRoomById($_GET["terem_id"],$_GET["epulet_id"]);
-header("location: ./rooms.php");
+header("location: ./");
 
 
 
