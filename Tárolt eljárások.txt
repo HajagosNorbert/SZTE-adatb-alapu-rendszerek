@@ -1,9 +1,10 @@
-1. terem update //nem működik a kulcs ütközés miatt
+1. terem update
 
 create or replace procedure updateTerem (ujTeremNev in varchar2, ujTeremKod in number, regiTeremKod in number, regiEpuletKod in number, ujEpuletKod in number) as
 v_termek number;
 begin
     select count(terem.kod) into v_termek from terem where terem.epulet_kod = updateTerem.ujEpuletKod AND terem.kod = updateTerem.ujTeremKod;
+    update terem set terem.nev = ujTeremNev where terem.kod = regiTeremKod and terem.epulet_kod = regiEpuletKod;
     if (v_termek = 0) then
         INSERT INTO terem (kod, nev, epulet_kod) values (ujTeremKod, ujTeremNev, ujEpuletKod);
         update kurzus set kurzus.terem_kod = ujTeremKod, kurzus.epulet_kod = ujEpuletKod where kurzus.terem_kod = regiTeremKod and kurzus.epulet_kod = regiEpuletKod;

@@ -1,5 +1,5 @@
 --------------------------------------------------------
---  File created - szombat-·prilis-30-2022   
+--  File created - szombat-ÔøΩprilis-30-2022   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Table FELHASZNALO
@@ -20,36 +20,36 @@
   TABLESPACE "USERS" ;
 REM INSERTING into C##GK10ZO.FELHASZNALO
 SET DEFINE OFF;
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('1','asd123','Tam·s','Minta','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('2','asd123','Peti','Minta','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('3','admin','Gazda','Rendszer','1');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('4','asd123','Fanni','Minta','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('5','asd123','¡bel','Minta','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('6','asd123','LeÛ','Minta','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('27','asd123','PÈter','Nagy','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('8','asd123','Petra','Minta','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('9','asd123','M·ria','Mintaa','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('10','asd123','D·vid','Minta','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('11','asd123','Viktor','Minta','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('12','asd123','Csakn·d','Minta','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('13','asd123','RÈka','Minta','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('14','asd123','Rita','Minta','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('25','asd123','OttÛ','Lengyel','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('28','asd123','Fa','Ak·cz','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('29','peterarpad','¡rp·d','PÈter','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('30','csaba123','Csaba','Makkosh·zi','1');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('34','kakascsabi','Csaba','Kakas','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('35','doomslayer','Blazkowicz ','B.J.','1');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('36','wolfeinstein','Blazkowicz ','William Joseph','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('37','madarzsolt','Zsolt','Madaras','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('21','asd123','Tam·s','Lengyel','1');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('22','asd123','M·rk','Nagy','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('23','asd123','Tam·s','Kis','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('24','admin','Gergı','Aranyos','1');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('26','asd123','¡rp·d','Bˆrˆcz','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('31','szegediattila','Attila','Szegedi','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('32','borosildiko','IldikÛ','Boros','0');
-Insert into C##GK10ZO.FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('33','magyaradam','¡d·m','Magyaros','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('1','asd123','Tam√°s','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('2','asd123','Peti','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('3','admin','Gazda','Rendszer','1');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('4','asd123','Fanni','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('5','asd123','√Åbel','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('6','asd123','Lei','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('27','asd123','P√©ter','Nagy','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('8','asd123','Petra','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('9','asd123','M√°ria','Mintaa','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('10','asd123','D√°vid','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('11','asd123','Viktor','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('12','asd123','Csakn√°dd','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('13','asd123','R√≥ka','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('14','asd123','Rita','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('25','asd123','Ott√≥','Lengyel','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('28','asd123','Fa','Akos','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('29','peterarpad','√Årp√°d','P√âter','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('30','csaba123','Csaba','Makkosh√°zi','1');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('34','kakascsabi','Csaba','Kakas','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('35','doomslayer','Blazkowicz ','B.J.','1');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('36','wolfeinstein','Blazkowicz ','William Joseph','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('37','madarzsolt','Zsolt','Madaras','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('21','asd123','Tam√°s','Lengyel','1');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('22','asd123','M√°rk','Nagy','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('23','asd123','Tam√°s','Kis','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('24','admin','Gerg≈ë','Aranyos','1');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('26','asd123','B√©la','Bicz√≥k','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('31','szegediattila','Attila','Szegedi','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('32','borosildiko','Ildik√≥','Boros','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('33','magyaradam','√Åd√°m','Magyaros','0');
 --------------------------------------------------------
 --  DDL for Index SYS_C00139566
 --------------------------------------------------------

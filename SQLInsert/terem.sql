@@ -1,5 +1,5 @@
 --------------------------------------------------------
---  File created - szombat-április-30-2022   
+--  File created - szombat-ï¿½prilis-30-2022   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Table TEREM
@@ -18,36 +18,36 @@
   TABLESPACE "USERS" ;
 REM INSERTING into C##GK10ZO.TEREM
 SET DEFINE OFF;
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('989','Békétlen terem','30');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('556','ZH író terem','3');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('567','ZH író terem','2');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('342','Növényvizsgáló','7');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('753','Mûtõ terem','8');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('863','Olvasó terem','21');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('531','Házi író terem','21');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('752','Nyugi terem','21');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('210','Sztocha terem','3');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('645','Kalkulus terem','3');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('763','Kicsi terem','9');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('689','Kicsi terem','30');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('839','Könyes terem','26');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('249','Kölcsönzõ','26');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('887','Arany terem','9');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('204','Infó terem','24');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('999','Büfé','24');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('534','Beszélgetõ','33');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('101','nagyterem','2');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('102','mellékterem','2');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('55','nagyobbterem','7');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('104','segédterem','2');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('214','IR-214','2');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('212','iroda','3');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('215','IR-215','2');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('111','kisterem','3');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('215','rendszergazda terem','3');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('432','Klinika terem','8');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('444','Csonka terem','10');
-Insert into C##GK10ZO.TEREM (KOD,NEV,EPULET_KOD) values ('769','Felszabadulás terem','31');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('989','BÃ©kÃ©tlen terem','30');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('556','ZH Ã­rÃ³ terem','3');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('567','ZH Ã­rÃ³ terem','2');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('342','Nyelvvizsga terem','7');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('753','MÅ±tÅ‘ terem','8');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('863','OlvasÃ³ terem','21');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('531','HÃ¡zi Ã­rÃ³ terem','21');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('752','Nyugi terem','21');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('210','Sztocha terem','3');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('645','Kalkulus terem','3');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('763','Kicsi terem','9');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('689','Kicsi terem','30');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('839','KÃ¶nyves terem','26');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('249','KÃ¶lcsÃ¶nzÅ‘','26');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('887','Arany terem','9');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('204','InfÃ³ terem','24');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('999','BÃ¼fÃ©','24');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('534','BeszÃ©lgetÅ‘','33');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('101','nagyterem','2');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('102','mellÃ©kterem','2');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('55','nagyobbterem','7');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('104','segÃ©dterem','2');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('214','','2');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('212','iroda','3');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('215','','2');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('111','kisterem','3');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('215','rendszergazda terem','3');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('432','Klinika terem','8');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('444','Csonka terem','10');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('769','FelszabadulÃ¡s terem','31');
 --------------------------------------------------------
 --  DDL for Index SYS_C00130027
 --------------------------------------------------------
