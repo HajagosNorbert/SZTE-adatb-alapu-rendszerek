@@ -1,5 +1,5 @@
 --------------------------------------------------------
---  File created - szombat-·prilis-30-2022   
+--  File created - szombat-ÔøΩprilis-30-2022   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Table EPULET
@@ -16,19 +16,18 @@
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 REM INSERTING into C##GK10ZO.EPULET
-SET DEFINE OFF;
-Insert into C##GK10ZO.EPULET (KOD,NEV) values ('21','TIK');
-Insert into C##GK10ZO.EPULET (KOD,NEV) values ('2','IRINYI');
-Insert into C##GK10ZO.EPULET (KOD,NEV) values ('3','BOLYAI');
-Insert into C##GK10ZO.EPULET (KOD,NEV) values ('24','G¡BOR D…NES …P.');
-Insert into C##GK10ZO.EPULET (KOD,NEV) values ('7','J”ZSEF ATTILA …P.');
-Insert into C##GK10ZO.EPULET (KOD,NEV) values ('8','KLINIK¡K');
-Insert into C##GK10ZO.EPULET (KOD,NEV) values ('9','ARANY J¡NOS …P.');
-Insert into C##GK10ZO.EPULET (KOD,NEV) values ('10','CSONKA …P.');
-Insert into C##GK10ZO.EPULET (KOD,NEV) values ('26','KLEBENSBERG K÷NYVT¡R');
-Insert into C##GK10ZO.EPULET (KOD,NEV) values ('30','B…KE …P.');
-Insert into C##GK10ZO.EPULET (KOD,NEV) values ('31','FELASZABADUL¡S …P.');
-Insert into C##GK10ZO.EPULET (KOD,NEV) values ('33','REKTORI …P.');
+SET DEFINE OFF;Insert into EPULET (KOD,NEV) values ('21','TIK');
+Insert into EPULET (KOD,NEV) values ('2','IRINYI');
+Insert into EPULET (KOD,NEV) values ('3','BOLYAI');
+Insert into EPULET (KOD,NEV) values ('24','G√ÅBOR D√âNES √âP.');
+Insert into EPULET (KOD,NEV) values ('7','JÔøΩZSEF ATTILA √âP.');
+Insert into EPULET (KOD,NEV) values ('8','KLINIKÔøΩK');
+Insert into EPULET (KOD,NEV) values ('9','ARANY JÔøΩNOS √âP.');
+Insert into EPULET (KOD,NEV) values ('10','CSONKA √âP.');
+Insert into EPULET (KOD,NEV) values ('26','KLEBENSBERG KÔøΩNYVT√ÅR');
+Insert into EPULET (KOD,NEV) values ('30','B√âKE √âP.');
+Insert into EPULET (KOD,NEV) values ('31','FELASZABADULÔøΩS √âP.');
+Insert into EPULET (KOD,NEV) values ('33','REKTORI √âP.');
 --------------------------------------------------------
 --  DDL for Index SYS_C00130018
 --------------------------------------------------------

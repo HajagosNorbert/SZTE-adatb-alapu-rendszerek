@@ -76,4 +76,5 @@ select kurzus.kod, kurzus.nev, kurzus.max_letszam, f2.kod as oktato_kod, f2.kere
 
 select  epulet.kod AS "epulet_id",epulet.nev,count(terem.kod) AS "darab"
                 from epulet left join terem on epulet.kod = terem.epulet_kod
-                group by epulet.kod,epulet.nev
+                group by epulet.kod,epulet.nev;
+

@@ -152,6 +152,37 @@ insert into terem values ( 03,'', 4 );
 insert into terem values ( 04,'', 4 );
 insert into terem values ( 05,'', 4 );
 
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('989','Békétlen terem','30');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('556','ZH író terem','3');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('567','ZH író terem','2');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('342','Nyelvvizsga terem','7');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('753','Műtő terem','8');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('863','Olvasó terem','21');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('531','Házi író terem','21');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('752','Nyugi terem','21');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('210','Sztocha terem','3');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('645','Kalkulus terem','3');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('763','Kicsi terem','9');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('689','Kicsi terem','30');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('839','Könyves terem','26');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('249','Kölcsönző','26');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('887','Arany terem','9');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('204','Infó terem','24');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('999','Büfé','24');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('534','Beszélgető','33');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('101','nagyterem','2');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('102','mellékterem','2');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('55','nagyobbterem','7');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('104','segédterem','2');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('214','','2');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('212','iroda','3');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('215','','2');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('111','kisterem','3');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('215','rendszergazda terem','3');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('432','Klinika terem','8');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('444','Csonka terem','10');
+Insert into TEREM (KOD,NEV,EPULET_KOD) values ('769','Felszabadulás terem','31');
+
 
 
 INSERT INTO felhasznalo (jelszo, keresztnev, vezeteknev, admin) VALUES ( 'asd123', 'Tamás', 'Minta', 0 );
@@ -169,12 +200,50 @@ INSERT INTO felhasznalo (jelszo, keresztnev, vezeteknev, admin) VALUES ( 'asd123
 INSERT INTO felhasznalo (jelszo, keresztnev, vezeteknev, admin) VALUES ( 'asd123', 'Réka', 'Minta', 0 );
 INSERT INTO felhasznalo (jelszo, keresztnev, vezeteknev, admin) VALUES ( 'asd123', 'Rita', 'Minta', 0 );
 
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('1','asd123','Tamás','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('2','asd123','Peti','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('3','admin','Gazda','Rendszer','1');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('4','asd123','Fanni','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('5','asd123','Ábel','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('6','asd123','Lei','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('27','asd123','Péter','Nagy','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('8','asd123','Petra','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('9','asd123','Mária','Mintaa','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('10','asd123','Dávid','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('11','asd123','Viktor','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('12','asd123','Csaknádd','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('13','asd123','Róka','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('14','asd123','Rita','Minta','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('25','asd123','Ottó','Lengyel','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('28','asd123','Fa','Akos','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('29','peterarpad','Árpád','PÉter','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('30','csaba123','Csaba','Makkosházi','1');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('34','kakascsabi','Csaba','Kakas','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('35','doomslayer','Blazkowicz ','B.J.','1');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('36','wolfeinstein','Blazkowicz ','William Joseph','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('37','madarzsolt','Zsolt','Madaras','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('21','asd123','Tamás','Lengyel','1');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('22','asd123','Márk','Nagy','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('23','asd123','Tamás','Kis','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('24','admin','Gergő','Aranyos','1');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('26','asd123','Béla','Biczók','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('31','szegediattila','Attila','Szegedi','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('32','borosildiko','Ildikó','Boros','0');
+Insert into FELHASZNALO (KOD,JELSZO,KERESZTNEV,VEZETEKNEV,ADMIN) values ('33','magyaradam','Ádám','Magyaros','0');
+
 
 INSERT INTO oktato (tanitas_kezdete, felhasznalo_kod) VALUES ( CURRENT_TIMESTAMP, 2 );
 INSERT INTO oktato (tanitas_kezdete, felhasznalo_kod) VALUES ( CURRENT_TIMESTAMP, 3 );
 INSERT INTO oktato (tanitas_kezdete, felhasznalo_kod) VALUES ( CURRENT_TIMESTAMP, 4 );
 INSERT INTO oktato (tanitas_kezdete, felhasznalo_kod) VALUES ( CURRENT_TIMESTAMP, 5 );
-INSERT INTO oktato (tanitas_kezdete, felhasznalo_kod) VALUES ( CURRENT_TIMESTAMP, 6 );
+INSERT INTO oktato (tanitas_kezdete, felhasznalo_kod) VALUES ( CURRENT_TIMESTAMP, 7 );
+INSERT INTO oktato (tanitas_kezdete, felhasznalo_kod) VALUES ( CURRENT_TIMESTAMP, 8 );
+INSERT INTO oktato (tanitas_kezdete, felhasznalo_kod) VALUES ( CURRENT_TIMESTAMP, 9 );
+INSERT INTO oktato (tanitas_kezdete, felhasznalo_kod) VALUES ( CURRENT_TIMESTAMP, 10 );
+INSERT INTO oktato (tanitas_kezdete, felhasznalo_kod) VALUES ( CURRENT_TIMESTAMP, 11 );
+INSERT INTO oktato (tanitas_kezdete, felhasznalo_kod) VALUES ( CURRENT_TIMESTAMP, 12 );
+INSERT INTO oktato (tanitas_kezdete, felhasznalo_kod) VALUES ( CURRENT_TIMESTAMP, 13 );
+INSERT INTO oktato (tanitas_kezdete, felhasznalo_kod) VALUES ( CURRENT_TIMESTAMP, 14 );
 
 
 INSERT INTO log (felhasznalo_kod, bejelentkezesi_ido) VALUES ( 3, CURRENT_TIMESTAMP );
@@ -203,13 +272,27 @@ INSERT INTO hallgato (szemeszter, felhasznalo_kod) VALUES ( 1, 8);
 INSERT INTO hallgato (szemeszter, felhasznalo_kod) VALUES ( 1, 9);
 INSERT INTO hallgato (szemeszter, felhasznalo_kod) VALUES ( 1, 10);
 INSERT INTO hallgato (szemeszter, felhasznalo_kod) VALUES ( 1, 11);
+INSERT INTO hallgato (szemeszter, felhasznalo_kod) VALUES ( 2, 12);
+INSERT INTO hallgato (szemeszter, felhasznalo_kod) VALUES ( 2, 13);
+INSERT INTO hallgato (szemeszter, felhasznalo_kod) VALUES ( 2, 14);
+INSERT INTO hallgato (szemeszter, felhasznalo_kod) VALUES ( 2, 15);
+INSERT INTO hallgato (szemeszter, felhasznalo_kod) VALUES ( 2, 16);
+INSERT INTO hallgato (szemeszter, felhasznalo_kod) VALUES ( 2, 17);
+INSERT INTO hallgato (szemeszter, felhasznalo_kod) VALUES ( 2, 18);
+INSERT INTO hallgato (szemeszter, felhasznalo_kod) VALUES ( 1, 19);
+INSERT INTO hallgato (szemeszter, felhasznalo_kod) VALUES ( 3, 20);
+INSERT INTO hallgato (szemeszter, felhasznalo_kod) VALUES ( 3, 21);
+INSERT INTO hallgato (szemeszter, felhasznalo_kod) VALUES ( 3, 23);
+INSERT INTO hallgato (szemeszter, felhasznalo_kod) VALUES ( 3, 22);
+INSERT INTO hallgato (szemeszter, felhasznalo_kod) VALUES ( 3, 24);
+INSERT INTO hallgato (szemeszter, felhasznalo_kod) VALUES ( 3, 25);
 
 
 INSERT INTO kurzus (kod, nev, max_letszam, oktato_kod, terem_kod, epulet_kod) VALUES (1, 'Statisztika', 30, 2, 102, 2 );
 INSERT INTO kurzus (nev, max_letszam, oktato_kod, terem_kod, epulet_kod) VALUES ( 'Kertészet nem csak mikorbiológusoknak', 10, 2, 104, 2 );
 INSERT INTO kurzus (nev, max_letszam, oktato_kod, terem_kod, epulet_kod) VALUES ( 'Felső fokú eszperente', 15, 3, 101, 2 );
 INSERT INTO kurzus (nev, max_letszam, oktato_kod, terem_kod, epulet_kod) VALUES ( 'Önkifejezés JS könyvtár írással', 5, NULL, 215, 3 );
-INSERT INTO kurzus (nev, max_letszam, oktato_kod, terem_kod, epulet_kod) VALUES ( 'Kalkulus I.', 100, NULL, 101, 2 );
+INSERT INTO kurzus (kod, nev, max_letszam, oktato_kod, terem_kod, epulet_kod) VALUES (4, 'Kalkulus I.', 100, NULL, 101, 2 );
 
 create table FELIRATKOZAS (
  kod integer GENERATED BY DEFAULT AS IDENTITY,
@@ -238,10 +321,80 @@ INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 7, 3 );
 INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 8, 3 );
 INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 9, 3 );
 
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 10, 1 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 11, 1 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 12, 1 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 13, 1 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 14, 1 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 15, 1 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 16, 2 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 17, 2 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 18, 2 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 19, 2 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 20, 3 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 21, 3 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 22, 3 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 23, 3 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 24, 3 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 25, 3 );
+
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 10, 2 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 11, 2 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 12, 2 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 13, 2 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 14, 2 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 15, 2 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 16, 3 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 17, 3 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 18, 3 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 19, 3 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 20, 2 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 21, 2 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 22, 2 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 23, 2 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 24, 2 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 25, 2 );
+
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 1, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 2, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 3, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 4, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 5, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 6, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 7, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 8, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 9, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 10, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 11, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 12, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 13, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 14, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 15, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 16, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 17, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 18, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 19, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 20, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 21, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 22, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 23, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 24, 4 );
+INSERT INTO feliratkozas (hallgato_kod, kurzus_kod) VALUES ( 25, 4 );
+
 INSERT INTO hirdetmeny (felhasznalo_kod, kurzus_kod, megiras_ideje, tartalom) VALUES (2, 1, CURRENT_TIMESTAMP, 'fIGYELEM, SZEMESZTER NEMSOKÁRA KEZDŐDIK' );
 INSERT INTO hirdetmeny (felhasznalo_kod, kurzus_kod, megiras_ideje, tartalom) VALUES (2, 1, CURRENT_TIMESTAMP, 'Elnézést, capslock' );
 INSERT INTO hirdetmeny (felhasznalo_kod, kurzus_kod, megiras_ideje, tartalom) VALUES (2, 2, CURRENT_TIMESTAMP, 'Figyelem, nemsokára kezdődik a szemeszter! Nem akarom, hogy késsetek 1. óráról. Roppant fontots és komoly lesz' );
 INSERT INTO hirdetmeny (felhasznalo_kod, kurzus_kod, megiras_ideje, tartalom) VALUES (3, 3, CURRENT_TIMESTAMP,  'Sziasztok! Én leszek az oktatótok');
+
+INSERT INTO hirdetmeny (felhasznalo_kod, kurzus_kod, megiras_ideje, tartalom) VALUES (2, 1, CURRENT_TIMESTAMP, 'hangpróba' );
+INSERT INTO hirdetmeny (felhasznalo_kod, kurzus_kod, megiras_ideje, tartalom) VALUES (2, 1, CURRENT_TIMESTAMP, 'Hejj' );
+INSERT INTO hirdetmeny (felhasznalo_kod, kurzus_kod, megiras_ideje, tartalom) VALUES (2, 2, CURRENT_TIMESTAMP, 'Mindenki kész?' );
+INSERT INTO hirdetmeny (felhasznalo_kod, kurzus_kod, megiras_ideje, tartalom) VALUES (3, 3, CURRENT_TIMESTAMP,  'Óóóóó');
+
+INSERT INTO hirdetmeny (felhasznalo_kod, kurzus_kod, megiras_ideje, tartalom) VALUES (2, 1, CURRENT_TIMESTAMP, 'Remek' );
+INSERT INTO hirdetmeny (felhasznalo_kod, kurzus_kod, megiras_ideje, tartalom) VALUES (2, 1, CURRENT_TIMESTAMP, 'Ez valami' );
+INSERT INTO hirdetmeny (felhasznalo_kod, kurzus_kod, megiras_ideje, tartalom) VALUES (2, 2, CURRENT_TIMESTAMP, Felnnséges! );
+INSERT INTO hirdetmeny (felhasznalo_kod, kurzus_kod, megiras_ideje, tartalom) VALUES (3, 3, CURRENT_TIMESTAMP,  'Ki lakik odalent?');
 
 
 INSERT INTO bejegyzes (felhasznalo_kod, kurzus_kod, megiras_ideje, tartalom) VALUES (2, 1, CURRENT_TIMESTAMP, 'fIGYELEM, SZEMESZTER NEMSOKÁRA KEZDŐDIK' );
@@ -258,6 +411,20 @@ INSERT INTO vizsga (idopont, kurzus_kod, terem_kod, epulet_kod ) VALUES (CURRENT
 INSERT INTO vizsga (idopont, kurzus_kod, terem_kod, epulet_kod ) VALUES (CURRENT_TIMESTAMP, 1, 1 ,4);
 INSERT INTO vizsga (idopont, kurzus_kod, terem_kod, epulet_kod ) VALUES (CURRENT_TIMESTAMP, 1, 214 ,3);
 
+INSERT INTO vizsga (idopont, kurzus_kod, terem_kod, epulet_kod ) VALUES (CURRENT_TIMESTAMP, 1, 101 ,2);
+INSERT INTO vizsga (idopont, kurzus_kod, terem_kod, epulet_kod ) VALUES (CURRENT_TIMESTAMP, 2, 101 ,2);
+INSERT INTO vizsga (idopont, kurzus_kod, terem_kod, epulet_kod ) VALUES (CURRENT_TIMESTAMP, 3, 101 ,2);
+INSERT INTO vizsga (idopont, kurzus_kod, terem_kod, epulet_kod ) VALUES (CURRENT_TIMESTAMP, 1, 102 ,2);
+INSERT INTO vizsga (idopont, kurzus_kod, terem_kod, epulet_kod ) VALUES (CURRENT_TIMESTAMP, 2, 102 ,2);
+INSERT INTO vizsga (idopont, kurzus_kod, terem_kod, epulet_kod ) VALUES (CURRENT_TIMESTAMP, 3, 102 ,2);
+
+INSERT INTO vizsga (idopont, kurzus_kod, terem_kod, epulet_kod ) VALUES (CURRENT_TIMESTAMP, 1, 212 ,3);
+INSERT INTO vizsga (idopont, kurzus_kod, terem_kod, epulet_kod ) VALUES (CURRENT_TIMESTAMP, 2, 212 ,3);
+INSERT INTO vizsga (idopont, kurzus_kod, terem_kod, epulet_kod ) VALUES (CURRENT_TIMESTAMP, 3, 212 ,3);
+INSERT INTO vizsga (idopont, kurzus_kod, terem_kod, epulet_kod ) VALUES (CURRENT_TIMESTAMP, 1, 213 ,3);
+INSERT INTO vizsga (idopont, kurzus_kod, terem_kod, epulet_kod ) VALUES (CURRENT_TIMESTAMP, 2, 213 ,3);
+INSERT INTO vizsga (idopont, kurzus_kod, terem_kod, epulet_kod ) VALUES (CURRENT_TIMESTAMP, 3, 213 ,3);
+
 insert into tananyag values (default, 'elso.docx', 2, sysdate, TO_BLOB('aaa'));  
 insert into tananyag values (default, 'masodik.docx', 2, sysdate, TO_BLOB('aaa'));  
 insert into tananyag values (default, 'harmadik.docx', 2, sysdate, TO_BLOB('aaa'));  
@@ -265,6 +432,103 @@ insert into tananyag values (default, 'negyedik.docx', 3, sysdate, TO_BLOB('aaa'
 insert into tananyag values (default, 'otodik.docx', 3, sysdate, TO_BLOB('aaa'));  
 insert into tananyag values (default, 'hatodik.docx', 3, sysdate, TO_BLOB('aaa'));  
 
+insert into tananyag values (default, 'elso.docx', 1, sysdate, TO_BLOB('aaa'));  
+insert into tananyag values (default, 'masodik.docx', 1, sysdate, TO_BLOB('aaa'));  
+insert into tananyag values (default, 'harmadik.docx', 1, sysdate, TO_BLOB('aaa'));  
+insert into tananyag values (default, 'negyedik.docx', 1, sysdate, TO_BLOB('aaa'));  
+insert into tananyag values (default, 'otodik.docx', 1, sysdate, TO_BLOB('aaa'));  
+insert into tananyag values (default, 'hatodik.docx', 1, sysdate, TO_BLOB('aaa'));  
+
+create or replace procedure updateTerem (ujTeremNev in varchar2, ujTeremKod in number, regiTeremKod in number, regiEpuletKod in number, ujEpuletKod in number) as
+v_termek number;
+begin
+    select count(terem.kod) into v_termek from terem where terem.epulet_kod = updateTerem.ujEpuletKod AND terem.kod = updateTerem.ujTeremKod;
+    update terem set terem.nev = ujTeremNev where terem.kod = regiTeremKod and terem.epulet_kod = regiEpuletKod;
+    if (v_termek = 0) then
+        INSERT INTO terem (kod, nev, epulet_kod) values (ujTeremKod, ujTeremNev, ujEpuletKod);
+        update kurzus set kurzus.terem_kod = ujTeremKod, kurzus.epulet_kod = ujEpuletKod where kurzus.terem_kod = regiTeremKod and kurzus.epulet_kod = regiEpuletKod;
+        update vizsga set vizsga.terem_kod = ujTeremKod, vizsga.epulet_kod = ujEpuletKod where vizsga.terem_kod = regiTeremKod and vizsga.epulet_kod = regiEpuletKod;
+        
+        delete from terem where terem.kod = regiTeremKod and terem.epulet_kod = regiEpuletKod;
+    end if;
+end;
+
+create or replace procedure createBuilding(name in varchar2) as
+begin
+
+    insert into epulet (nev) values(createBuilding.name);
+
+end;
+
+
+
+create or replace procedure createRoom(nev in varchar2, kod in number, epuletKod in number)as
+begin
+
+
+    insert into terem values(createRoom.kod,createRoom.nev,createRoom.epuletKod);
+
+end;
+
+
+create or replace procedure deleteBuilding(buildingId in number) as
+begin
+
+    delete from terem where epulet_kod = deleteBuilding.buildingId;
+    delete from epulet where kod = deleteBuilding.buildingId;
+
+end;
+
+
+
+
+create or replace trigger felhasznalo_torles
+before delete on felhasznalo
+for each row 
+begin
+    delete from hallgato where FELHASZNALO_KOD = :old.kod;
+    delete from oktato where FELHASZNALO_KOD = :old.kod;
+end;
+/
+
+create or replace trigger delete_courses
+before delete on kurzus
+for each row
+begin
+
+    delete from bejegyzes where kod = :OLD.kod;
+    delete from feliratkozas where kurzus_kod = :OLD.kod;
+    delete from hirdetmeny where kurzus_kod = :OLD.kod;
+    delete from tananyag where kurzus_kod = :OLD.kod;
+    delete from vizsga where kurzus_kod = :OLD.kod;
+
+end;
+/
+
+create or replace trigger hallgato_torles
+before delete on hallgato
+for each row 
+begin
+    delete from feliratkozas where HALLGATO_KOD = :old.FELHASZNALO_KOD;
+end;
+/
+
+create or replace trigger oktato_torles
+before delete on oktato
+for each row 
+begin
+    update kurzus set oktato_kod = NULL where oktato_kod = :old.FELHASZNALO_KOD;
+end;
+/
+
+create or replace trigger terem_torles
+before delete on terem
+for each row 
+begin
+    delete from kurzus where kurzus.terem_kod = :old.kod and kurzus.epulet_kod = :old.epulet_kod;
+    delete from vizsga where vizsga.terem_kod = :old.kod and vizsga.epulet_kod = :old.epulet_kod;
+end;
+/
 
 grant select, insert, DELETE on BEJEGYZES to C##GK10ZO;
 grant select, insert, DELETE on EPULET to C##GK10ZO;
